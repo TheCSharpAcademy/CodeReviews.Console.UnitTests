@@ -2,7 +2,7 @@
 
 class Program
 {
-    static bool endApp = false;
+    static bool endApp;
     static void Main(string[] args)
     {
         Viewer.DisplayTitle();

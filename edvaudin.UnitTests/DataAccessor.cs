@@ -1,6 +1,5 @@
-﻿using Microsoft.Data.Sqlite;
-using System.Configuration;
-using MapDataReader;
+﻿using MapDataReader;
+using Microsoft.Data.Sqlite;
 
 namespace CodingTracker
 {
