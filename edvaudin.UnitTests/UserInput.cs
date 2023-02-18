@@ -1,5 +1,4 @@
-﻿
-namespace CodingTracker;
+﻿namespace CodingTracker;
 
 internal static class UserInput
 {
