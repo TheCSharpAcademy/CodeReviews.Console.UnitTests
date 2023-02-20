@@ -1,8 +1,8 @@
 ﻿namespace CodingTracker;
 
-class Program
+internal class Program
 {
-    static bool endApp;
+    static bool endApp = false;
     static void Main(string[] args)
     {
         Viewer.DisplayTitle();
@@ -27,4 +27,3 @@ class Program
 
     private static void ExitApp() => Environment.Exit(0);
 }
-

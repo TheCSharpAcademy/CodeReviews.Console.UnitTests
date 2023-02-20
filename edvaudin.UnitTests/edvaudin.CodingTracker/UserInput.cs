@@ -1,4 +1,6 @@
-﻿namespace CodingTracker;
+﻿using System.Globalization;
+
+namespace CodingTracker;
 
 internal static class UserInput
 {
