@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -17,7 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\source\repos\kmakai\CodeReviews.Console.CodingTracker\CodingTracker.kmakai\CodingTracker.kmakai\CodingTracker.kmakai.csproj" />
+    <ProjectReference Include="..\CodingTracker.kmakai\CodingTracker.kmakai\CodingTracker.kmakai.csproj" />
   </ItemGroup>
 
+ 
 </Project>
