@@ -16,5 +16,9 @@
     <PackageReference Include="coverlet.collector" Version="3.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CodingTracker.kmakai\CodingTracker.kmakai\CodingTracker.kmakai.csproj" />
+  </ItemGroup>
+
  
 </Project>
