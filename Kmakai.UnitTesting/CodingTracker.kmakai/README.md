@@ -1,7 +1,7 @@
-# CodingTracker 
+# CodingTracker
 
 # Task
- - Create a console app that lets you track time spend coding. The app will record start and end time of your coding session and calculates the total duration.
+Create a console app that lets you track time spend coding. The app will record start and end time of your coding session and calculates the total duration.
 
 # Requirements
 - [x] Must use ConsoleTableExt Library

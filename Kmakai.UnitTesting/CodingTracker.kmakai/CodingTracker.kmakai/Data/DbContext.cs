@@ -1,5 +1,4 @@
 ﻿using CodingTracker.kmakai.Models;
-using System.Configuration;
 using System.Data.SQLite;
 
 namespace CodingTracker.kmakai.Data;
