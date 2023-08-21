@@ -24,7 +24,7 @@ public class InputController
     static public string GetStartTimeInput()
     {
         Console.WriteLine("Enter Start time (hh:mm) this is in 24hrs formatt: ");
-        string time = Console.ReadLine(); 
+        string? time = Console.ReadLine(); 
         while (!IsTimeValid(time))
         {
             Console.WriteLine("Invalid time format. Try again (hh:mm) this is in 24hrs format: ");
@@ -42,19 +42,39 @@ public class InputController
     static public string GetEndTimeInput(string startTime)
     {
         Console.WriteLine("Enter End time(hh:mm) this is in 24hrs formatt: ");
-        TimeOnly time;
-        while (!TimeOnly.TryParse(Console.ReadLine(), out time))
+        string? time = Console.ReadLine();
+
+        while (!IsTimeValid(time) || string.IsNullOrEmpty(time))
         {
             Console.WriteLine("Invalid time format. Try again (hh:mm) this is in 24hrs format: ");
+            time = Console.ReadLine();
         }
 
-        if(Convert.ToDateTime(time.ToString("hh\\:mm")) <= Convert.ToDateTime(startTime))
+        while(!IsEndTimeValid(startTime, time))
         {
             Console.WriteLine("End time must be greater than start time. Try again (hh:mm) this is in 24hrs format: ");
-            return GetEndTimeInput(startTime);
+            time = Console.ReadLine();
         }
 
-        return time.ToString("hh\\:mm");
+        return time;
+
+        //while (!TimeOnly.TryParse(Console.ReadLine(), out time))
+        //{
+        //    Console.WriteLine("Invalid time format. Try again (hh:mm) this is in 24hrs format: ");
+        //}
+
+        //if(Convert.ToDateTime(time.ToString("hh\\:mm")) <= Convert.ToDateTime(startTime))
+        //{
+        //    Console.WriteLine("End time must be greater than start time. Try again (hh:mm) this is in 24hrs format: ");
+        //    return GetEndTimeInput(startTime);
+        //}
+
+        //return time.ToString("hh\\:mm");
+    }
+
+    public static bool IsEndTimeValid(string startTime, string endTime)
+    {
+        return Convert.ToDateTime(endTime) > Convert.ToDateTime(startTime);
     }
 
     static public int GetIdInput()

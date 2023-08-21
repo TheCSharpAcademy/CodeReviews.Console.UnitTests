@@ -11,8 +11,8 @@ public class DbContext
 
     public DbContext()
     {
-        ConnectionString = ConfigurationManager.AppSettings.Get("connectionString");
-        DbPath = ConfigurationManager.AppSettings.Get("dbPath");
+        ConnectionString = System.Configuration.ConfigurationManager.AppSettings.Get("connectionString");
+        DbPath = System.Configuration.ConfigurationManager.AppSettings.Get("dbPath");
         CreateDatabase();
     }
 
