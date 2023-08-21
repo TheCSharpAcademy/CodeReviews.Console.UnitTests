@@ -57,19 +57,6 @@ public class InputController
         }
 
         return time;
-
-        //while (!TimeOnly.TryParse(Console.ReadLine(), out time))
-        //{
-        //    Console.WriteLine("Invalid time format. Try again (hh:mm) this is in 24hrs format: ");
-        //}
-
-        //if(Convert.ToDateTime(time.ToString("hh\\:mm")) <= Convert.ToDateTime(startTime))
-        //{
-        //    Console.WriteLine("End time must be greater than start time. Try again (hh:mm) this is in 24hrs format: ");
-        //    return GetEndTimeInput(startTime);
-        //}
-
-        //return time.ToString("hh\\:mm");
     }
 
     public static bool IsEndTimeValid(string startTime, string endTime)
