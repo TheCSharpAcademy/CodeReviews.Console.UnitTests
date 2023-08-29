@@ -114,10 +114,10 @@ internal class DatabaseLogic
                     int timeToGoal = reader.GetInt32(5);
 
                     DateTime startDateT;
-                    validation.GetValidDate(startDate,false, out startDateT);
+                    validation.GetValidDate(startDate, out startDateT);
 
                     DateTime endDateT;
-                    validation.GetValidDate(endDate, false, out endDateT);
+                    validation.GetValidDate(endDate, out endDateT);
 
                     session.Add(new CodingSession(id, startDateT, endDateT, totalTime, goal, timeToGoal));
                 }

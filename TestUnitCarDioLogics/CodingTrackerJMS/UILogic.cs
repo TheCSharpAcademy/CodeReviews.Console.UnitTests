@@ -61,22 +61,26 @@ public class UILogic
     public void GetRecordInput(string userInput, string goalSelected, int timeToGoal, int id = 0)
     {
         bool isValid = false;
+        bool isTotalTimeValid;
+
         while (isValid == false)
         {
             Console.WriteLine("Type the START DATE of the session (yyyy/mm/dd; HH:mm):");
             startDate = Console.ReadLine();
-            isValid = validation.GetValidDate(startDate, isValid, out startDateT);
+            isValid = validation.GetValidDate(startDate, out startDateT);
         }
 
+
         isValid = false;
-        while (isValid == false)
+        do
         {
             Console.WriteLine("Type the END DATE of the session ((yyyy/mm/dd; HH:mm):");
             endDate = Console.ReadLine();
-            isValid = validation.GetValidDate(endDate, isValid, out endDateT);
-        }
+            isValid = validation.GetValidDate(endDate, out endDateT);
+            isTotalTimeValid = validation.isTotalTimeValid(startDateT, endDateT);
+        } while (isValid == false || isTotalTimeValid == false);
 
-        startDate = startDateT.ToString("yyyy/MM/dd; HH:mm");
+            startDate = startDateT.ToString("yyyy/MM/dd; HH:mm");
         endDate = endDateT.ToString("yyyy/MM/dd; HH:mm");
 
         TimeSpan totalTimeT = endDateT - startDateT;
