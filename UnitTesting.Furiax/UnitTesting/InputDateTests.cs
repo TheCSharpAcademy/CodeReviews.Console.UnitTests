@@ -4,10 +4,10 @@ using System;
 namespace UnitTesting
 {
 	[TestClass]
-	public class UnitTest1
+	public class InputDateTests
 	{
 		[TestMethod]
-		public void TestMethod1()
+		public void Test_Input_StartDate_Test()
 		{
 		}
 	}
