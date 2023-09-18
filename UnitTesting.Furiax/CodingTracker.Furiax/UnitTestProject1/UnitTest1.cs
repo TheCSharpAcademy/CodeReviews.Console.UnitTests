@@ -1,13 +1,13 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace UnitTesting
+namespace UnitTestProject1
 {
 	[TestClass]
-	public class InputDateTests
+	public class UnitTest1
 	{
 		[TestMethod]
-		public void Test_Input_StartDate_Test()
+		public void TestMethod1()
 		{
 		}
 	}

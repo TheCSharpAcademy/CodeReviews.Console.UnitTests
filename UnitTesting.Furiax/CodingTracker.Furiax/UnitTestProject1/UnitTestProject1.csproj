@@ -5,11 +5,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2DD7CA34-59B3-4873-94B8-544655A1446E}</ProjectGuid>
+    <ProjectGuid>{9B992C9A-3D19-4CD0-BB06-39B82F59FD6B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UnitTesting</RootNamespace>
-    <AssemblyName>UnitTesting</AssemblyName>
+    <RootNamespace>UnitTestProject1</RootNamespace>
+    <AssemblyName>UnitTestProject1</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -49,15 +49,15 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InputDateTests.cs" />
+    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\CodingTracker\CodingTracker.Furiax\CodingTracker.Furiax\CodingTracker.Furiax.csproj">
-      <Project>{208152d3-6d93-4f73-9d00-e1168745c7cf}</Project>
+    <ProjectReference Include="..\CodingTracker.Furiax\CodingTracker.Furiax.csproj">
+      <Project>{c2ddd162-815a-45ba-9f21-870eb2811a60}</Project>
       <Name>CodingTracker.Furiax</Name>
     </ProjectReference>
   </ItemGroup>
