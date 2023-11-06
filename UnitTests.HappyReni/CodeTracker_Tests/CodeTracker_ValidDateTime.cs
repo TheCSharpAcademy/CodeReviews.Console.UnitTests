@@ -1,10 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using CodeTracker;
-
-namespace CodeTracker.Tests
+﻿namespace CodeTracker.Tests
 {
     [TestClass]
-    public class CodeTracker_ValidDateTime
+    public class CodeTrackerValidation
     {
         [TestMethod]
         [DataRow("2022-10-10 10:20:14")]
@@ -18,7 +15,7 @@ namespace CodeTracker.Tests
             {
                 Validation.ValidDateTime(value);
             }
-            catch 
+            catch
             {
                 Assert.Fail($"{value} is not valid DateTime type value.");
             }

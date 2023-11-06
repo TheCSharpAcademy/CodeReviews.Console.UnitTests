@@ -1,14 +1,13 @@
-﻿using System.Configuration;
-using System.Globalization;
+﻿using System.Globalization;
 
 namespace CodeTracker
 {
     internal class CodingSession
     {
         public CodingSession() { }
-        public CodingSession(DateTime start, DateTime end) 
+        public CodingSession(DateTime start, DateTime end)
         {
-            int number = Int32.Parse(ConfigurationManager.AppSettings.Get("RECORDNUMBER"));
+            int number = Int32.Parse(System.Configuration.ConfigurationManager.AppSettings.Get("RECORDNUMBER"));
             Random rand = new();
             Id = rand.Next(number);
             StartTime = start;
@@ -46,22 +45,22 @@ namespace CodeTracker
             {
                 YearDuration[syear] = Duration;
             }
-            else if(eyear-syear == 1)
+            else if (eyear - syear == 1)
             {
                 var newyear = new DateTime(eyear, 01, 01);
                 YearDuration[syear] = (newyear - StartTime).TotalHours;
                 YearDuration[eyear] = (EndTime - newyear).TotalHours;
             }
-            else 
+            else
             {
                 var newyear = new DateTime(syear + 1, 01, 01);
                 var newyear2 = new DateTime(eyear, 01, 01);
                 YearDuration[syear] = (newyear - StartTime).TotalHours;
-                for(int i=newyear.Year; i<=newyear2.Year-1; i++) 
-                { 
-                    YearDuration[++syear] = 8760; 
+                for (int i = newyear.Year; i <= newyear2.Year - 1; i++)
+                {
+                    YearDuration[++syear] = 8760;
                 }
-                YearDuration[eyear] = (EndTime-newyear2).TotalHours;
+                YearDuration[eyear] = (EndTime - newyear2).TotalHours;
             }
         }
         private void GetWeeks()
@@ -72,10 +71,10 @@ namespace CodeTracker
             DayOfWeek firstDayOfWeek = cultureInfo.DateTimeFormat.FirstDayOfWeek;
 
             var current = StartTime;
-            while (current <= EndTime) 
+            while (current <= EndTime)
             {
                 int year = calendar.GetYear(current);
-                int week = calendar.GetWeekOfYear(current, weekRule, firstDayOfWeek)-1;
+                int week = calendar.GetWeekOfYear(current, weekRule, firstDayOfWeek) - 1;
                 var day = calendar.GetDayOfWeek(current);
 
                 string week_str = week < 10 ? $"0{week}" : week.ToString();

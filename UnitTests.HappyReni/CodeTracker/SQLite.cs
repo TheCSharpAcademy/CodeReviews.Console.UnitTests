@@ -1,5 +1,4 @@
 ﻿using Microsoft.Data.Sqlite;
-using System.Configuration;
 
 namespace CodeTracker
 {
@@ -7,14 +6,14 @@ namespace CodeTracker
     {
         public SQLite() 
         {
-            TableName = ConfigurationManager.AppSettings.Get("TableName");
+            TableName = System.Configuration.ConfigurationManager.AppSettings.Get("TableName");
             CreateTable();
         }
         public string TableName { get; set; }
 
         private SqliteConnection GetConnection()
         {
-            string connStr = ConfigurationManager.AppSettings.Get("DatabasePath");
+            string connStr = System.Configuration.ConfigurationManager.AppSettings.Get("DatabasePath");
             using var conn = new SqliteConnection(connStr);
             return conn;
         }
@@ -133,7 +132,7 @@ namespace CodeTracker
                 }
             }
         }
-        public List<CodingSession> GetSQLData()
+        public List<CodingSession> GetSqlData()
         {
             var conn = GetConnection();
             conn.Open();
