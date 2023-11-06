@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingTracker.wkktoria", "CodingTracker.wkktoria\CodingTracker.wkktoria.csproj", "{C6EFB994-15BB-44AF-82F2-9AFED060B6A0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingTracker.wkktoria.Tests", "CodingTracker.wkktoria.Tests\CodingTracker.wkktoria.Tests.csproj", "{77ACFB52-8E28-41BA-AFE7-2A5BED7D326D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{C6EFB994-15BB-44AF-82F2-9AFED060B6A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C6EFB994-15BB-44AF-82F2-9AFED060B6A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C6EFB994-15BB-44AF-82F2-9AFED060B6A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77ACFB52-8E28-41BA-AFE7-2A5BED7D326D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77ACFB52-8E28-41BA-AFE7-2A5BED7D326D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77ACFB52-8E28-41BA-AFE7-2A5BED7D326D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77ACFB52-8E28-41BA-AFE7-2A5BED7D326D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
