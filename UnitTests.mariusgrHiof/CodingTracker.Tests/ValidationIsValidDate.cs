@@ -3,7 +3,7 @@ using CodingTracker.Utils;
 namespace CodingTracker.Tests;
 
 [TestClass]
-public class Validation_IsValidDate
+public class ValidationIsValidDate
 {
     [TestMethod]
     public void IsValidDate_DateIsValid_ReturnTrue()

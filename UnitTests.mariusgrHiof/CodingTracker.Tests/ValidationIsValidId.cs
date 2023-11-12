@@ -3,7 +3,7 @@
 namespace CodingTracker.Tests;
 
 [TestClass]
-public class Validation_IsValidId
+public class ValidationIsValidId
 {
     [TestMethod]
     public void IsValidId_Id1IsValid_ReturnTrue()
