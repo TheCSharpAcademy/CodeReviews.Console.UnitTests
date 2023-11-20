@@ -100,14 +100,15 @@ void ProcessUpdate()
         ProcessGetAllSessions();
         Console.Write("Enter an id: ");
         inputId = Console.ReadLine();
-        if (inputId.Equals("0"))
+
+        while (!Validation.ValidateId(inputId))
         {
-            return;
+            Console.WriteLine("Invalid id.Try again.");
+            Console.Write("Enter an id: ");
+
+            inputId = Console.ReadLine();
         }
-        if (!Validation.ValidateId(inputId))
-        {
-            continue;
-        }
+
         id = Convert.ToInt32(inputId);
         session = codingController.GetSessionById(id);
         if (session == null)
@@ -208,7 +209,7 @@ void ProcessAdd()
         {
             return;
         }
-        if (Validation.ValidateDate(endDate) == true && Validation.ValidateDateRange(DateTime.Parse(startDate), DateTime.Parse(endDate)))
+        if (Validation.ValidateDate(endDate) == true && Validation.ValidateDateRange(startDate, endDate))
         {
             isValidEndDate = true;
         }
