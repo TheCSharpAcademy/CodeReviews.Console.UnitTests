@@ -3,7 +3,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace CodingTracker.K_MYR;
 
-internal class UserInput
+public class UserInput
 {
     internal static void MainMenu()
     {
@@ -331,7 +331,7 @@ internal class UserInput
         {
             startDate = GetDateInput("Please enter a start date for your goal in a valid format (dd-mm-yyyy)", format: "dd-MM-yyyy");
             deadline = GetDateInput("Please enter a end date for your goal in a valid format (dd-mm-yyyy)", format: "dd-MM-yyyy");
-        } while (startDate.Date >= deadline.Date);
+        } while (!ValidateDates(startDate.Date, deadline.Date));
 
         goal = GetTimeSpanInput("Please enter your time goal in a valid format (dd:hh:mm)");
 
@@ -363,7 +363,7 @@ internal class UserInput
                 {
                     startDate = GetDateInput("Please enter a start date for your goal in a valid format (dd-mm-yyyy)", format: "dd-MM-yyyy");
                     deadline = GetDateInput("Please enter a end date for your goal in a valid format (dd-mm-yyyy)", format: "dd-MM-yyyy");
-                } while (startDate.Date >= deadline.Date);
+                } while (!ValidateDates(startDate.Date, deadline.Date));
 
                 goal = GetTimeSpanInput("Please enter your goal in a valid format (dd:hh:mm)");
 
@@ -460,12 +460,12 @@ internal class UserInput
         return DateTime.ParseExact(input!, format, new CultureInfo("de-DE"), DateTimeStyles.None);
     }
 
-    private static bool ValidateDate(string? input, string format)
+    public static bool ValidateDate(string? input, string format)
     {
         return DateTime.TryParseExact(input, format, new CultureInfo("de-DE"), DateTimeStyles.None, out _);
     }
 
-    private static bool ValidateDates(DateTime start, DateTime end)
+    public static bool ValidateDates(DateTime start, DateTime end)
     {
         return start < end;
     }
