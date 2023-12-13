@@ -201,7 +201,7 @@ public partial class Program
 
     static void DealWithError( Exception ex )
     {
-        Console.WriteLine("Something Went wrong! Check what you typed, you might have typed the name of the habit incorrectly!");
+        Console.WriteLine("Something Went wrong! Check what you typed, you might have typed the name of the habit incorrectly!", ex);
     }
 }
 

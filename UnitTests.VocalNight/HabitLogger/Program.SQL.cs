@@ -130,7 +130,7 @@ Date done: {date}");
         }
     }
 
-    static string GenerateUpdateSQL( string response, string habit, string id, string numberOfTimes )
+    static string GenerateUpdateSql( string response, string habit, string id, string numberOfTimes )
     {
         if (response == "y")
         {
