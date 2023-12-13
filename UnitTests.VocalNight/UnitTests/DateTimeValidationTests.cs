@@ -18,7 +18,7 @@ namespace Tests
         [InlineData("39.13.21")]
         [InlineData("10/13/21 25:00")]
         [InlineData("10:30 10-01-21")]
-        public void ValidateDateTime_TestAsserts_False( string dateTimeStr )
+        public void DateTime_GivenInvalidDate_AssertFalse( string dateTimeStr )
         {
             var result = Validation.ValidateDate(dateTimeStr);
 
@@ -30,7 +30,7 @@ namespace Tests
         [InlineData("25-10-2019")]
         [InlineData("01-01-2022")]
         [InlineData("29-10-2023")]
-        public void ValidateDateTime_TestAsserts_True( string dateTimeStr )
+        public void DateTime_GivenValidDate_AssertTrue( string dateTimeStr )
         {
             var result = Validation.ValidateDate(dateTimeStr);
 
