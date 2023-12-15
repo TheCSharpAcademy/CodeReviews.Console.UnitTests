@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HabitLogger", "HabitLogger\HabitLogger.csproj", "{7CE66476-4823-471D-BF16-DBCDA6A6635C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HabitLogger.UnitTests", "UnitTests\HabitLogger.UnitTests.csproj", "{D6682F45-4481-44D2-B334-EAC7C99C696D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7CE66476-4823-471D-BF16-DBCDA6A6635C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7CE66476-4823-471D-BF16-DBCDA6A6635C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7CE66476-4823-471D-BF16-DBCDA6A6635C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7CE66476-4823-471D-BF16-DBCDA6A6635C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6682F45-4481-44D2-B334-EAC7C99C696D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6682F45-4481-44D2-B334-EAC7C99C696D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6682F45-4481-44D2-B334-EAC7C99C696D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6682F45-4481-44D2-B334-EAC7C99C696D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C600B82C-E357-469B-8455-233BED18F933}
+	EndGlobalSection
+EndGlobal
