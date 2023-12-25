@@ -8,7 +8,7 @@ public class VerifierTest
     [DataRow(2023, 12, 30, 2021, 12, 31)]
     [DataRow(1452, 11, 05, 1452, 05, 20)]
     [DataRow(2003, 08, 04, 2003, 08, 01)]
-    public void DateTime_WithInvalidInputThrowsException(int startYear, int startMonth, int startDay, int endYear, int endMonth, int endDay)
+    public void DateTime_WithInvalidInputThrowsAnException(int startYear, int startMonth, int startDay, int endYear, int endMonth, int endDay)
     {
         var startTime = new DateTime(startYear, startMonth, startDay);
         var endTime = new DateTime(endYear, endMonth, endDay);
