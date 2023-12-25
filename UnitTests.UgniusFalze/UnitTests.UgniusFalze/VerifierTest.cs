@@ -22,8 +22,8 @@ public class VerifierTest
     [DataRow(2000, 02, 09, 2000, 02,09)]
     public void DateTime_WithValidInputNoExceptionIsThrown(int startYear, int startMonth, int startDay, int endYear, int endMonth, int endDay)
     {
-        var startTime = new DateTime(startYear, startMonth, startDay);
-        var endTime = new DateTime(endYear, endMonth, endDay);
-        Verifier.VerifyDate(startTime, endTime);
+        var startDate = new DateTime(startYear, startMonth, startDay);
+        var endDate = new DateTime(endYear, endMonth, endDay);
+        Verifier.VerifyDate(startDate, endDate);
     }
 }
