@@ -1,3 +1,6 @@
+using System.Globalization;
+using System;
+
 namespace StanChoi.CodingTracker.Tests;
 
 [TestClass]
@@ -41,5 +44,35 @@ public class ValidationTest
 	{
 		var result = Validation.IsValidDateTime(dateTimeString);
 		Assert.IsTrue(result);
+	}
+
+	[TestMethod]
+	[DataRow("2024-02-12 19:10",  "2024-02-12 15:30")]
+	public void WhenEndDateTimeIsGreaterThanStartDateTimeAssertTrue(string endDateTimeStr, string startDateTimeStr)
+	{
+		// Convert the string representations to DateTime objects
+		DateTime endDateTime = DateTime.ParseExact(endDateTimeStr, "yyyy-MM-dd HH:mm", null);
+		DateTime startDateTime = DateTime.ParseExact(startDateTimeStr, "yyyy-MM-dd HH:mm", null);
+
+		// Perform the test
+		var result = Validation.IsValidEndDateTimeGivenStartDateTime(endDateTime, startDateTime);
+
+		// Assertion
+		Assert.IsTrue(result);
+	}
+
+	[TestMethod]
+	[DataRow("2024-02-12 15:30", "2024-02-12 19:10")]
+	public void WhenEndDateTimeIsSmallerThanStartDateTimeAssertFalse(string endDateTimeStr, string startDateTimeStr)
+	{
+		// Convert the string representations to DateTime objects
+		DateTime endDateTime = DateTime.ParseExact(endDateTimeStr, "yyyy-MM-dd HH:mm", null);
+		DateTime startDateTime = DateTime.ParseExact(startDateTimeStr, "yyyy-MM-dd HH:mm", null);
+
+		// Perform the test
+		var result = Validation.IsValidEndDateTimeGivenStartDateTime(endDateTime, startDateTime);
+
+		// Assertion
+		Assert.IsFalse(result);
 	}
 }

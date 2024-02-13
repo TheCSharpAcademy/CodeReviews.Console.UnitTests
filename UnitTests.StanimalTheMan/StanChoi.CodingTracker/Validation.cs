@@ -14,5 +14,10 @@ namespace StanChoi.CodingTracker
 		{
 			return DateTime.TryParseExact(dateTimeInputString, "yyyy-MM-dd HH:mm", new CultureInfo("en-US"), DateTimeStyles.None, out _);
 		}
+
+		public static bool IsValidEndDateTimeGivenStartDateTime(DateTime endDateTime, DateTime startDateTime)
+		{
+			return endDateTime > startDateTime;
+		}
 	}
 }

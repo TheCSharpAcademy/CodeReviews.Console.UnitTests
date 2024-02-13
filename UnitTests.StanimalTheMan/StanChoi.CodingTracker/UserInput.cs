@@ -59,7 +59,7 @@ namespace StanChoi.CodingTracker
             Console.WriteLine("End Time");
             var endTimeInfo = GetDateTimeInput();
 
-            while (endTimeInfo.dateTime < startTimeInfo.dateTime)
+            while (!Validation.IsValidEndDateTimeGivenStartDateTime(endTimeInfo.dateTime, startTimeInfo.dateTime))
             {
                 Console.WriteLine("End Time");
                 endTimeInfo = GetDateTimeInput();
@@ -148,7 +148,7 @@ namespace StanChoi.CodingTracker
                         var startTimeInfo = GetDateTimeInput();
                         DateTime endDateTime;
                         DateTime.TryParseExact(codingSession.EndTime, "yyyy-MM-dd HH:mm", new CultureInfo("en-US"), DateTimeStyles.None, out endDateTime);
-                        while (startTimeInfo.dateTime > endDateTime)
+                        while (!Validation.IsValidEndDateTimeGivenStartDateTime(endDateTime, startTimeInfo.dateTime))
                         {
                             Console.WriteLine("Start Time");
                             startTimeInfo = GetDateTimeInput();
@@ -161,7 +161,7 @@ namespace StanChoi.CodingTracker
                         var endTimeInfo = GetDateTimeInput();
                         DateTime startDateTime;
                         DateTime.TryParseExact(codingSession.StartTime, "yyyy-MM-dd HH:mm", new CultureInfo("en-US"), DateTimeStyles.None, out startDateTime);
-                        while (endTimeInfo.dateTime < startDateTime)
+                        while (!Validation.IsValidEndDateTimeGivenStartDateTime(endTimeInfo.dateTime, startDateTime))
                         {
                             Console.WriteLine("End Time");
                             endTimeInfo = GetDateTimeInput();
