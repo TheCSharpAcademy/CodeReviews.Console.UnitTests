@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StanChoi.CodingTracker", "StanChoi.CodingTracker\StanChoi.CodingTracker.csproj", "{B011493C-A879-4DF2-ABD4-4E6EFFCA2155}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StanChoi.CodingTracker.Tests", "StanChoi.CodingTracker.Tests\StanChoi.CodingTracker.Tests.csproj", "{C7E9DFA9-F2CB-439E-854B-D4019D91BF7A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B011493C-A879-4DF2-ABD4-4E6EFFCA2155}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B011493C-A879-4DF2-ABD4-4E6EFFCA2155}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B011493C-A879-4DF2-ABD4-4E6EFFCA2155}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B011493C-A879-4DF2-ABD4-4E6EFFCA2155}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7E9DFA9-F2CB-439E-854B-D4019D91BF7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7E9DFA9-F2CB-439E-854B-D4019D91BF7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7E9DFA9-F2CB-439E-854B-D4019D91BF7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7E9DFA9-F2CB-439E-854B-D4019D91BF7A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {39A5145A-ED66-430C-BD86-8F12D8E7DDD8}
+	EndGlobalSection
+EndGlobal
