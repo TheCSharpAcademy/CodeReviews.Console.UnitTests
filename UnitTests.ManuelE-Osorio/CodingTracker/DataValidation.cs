@@ -37,14 +37,15 @@ public class DataValidation
 
     public static bool ValidateTime(string? startDate, string? startTime, string? endDate, string? endTime)
     {
-        bool validInput;
-
-        DateTime.TryParseExact(startDate+" "+startTime,"yyyy/MM/dd HH:mm",CultureInfo.InvariantCulture,
+        bool validInput = false;
+ 
+        var validStartDate = DateTime.TryParseExact(startDate+" "+startTime,"yyyy/MM/dd HH:mm",CultureInfo.InvariantCulture,
         DateTimeStyles.None ,out DateTime validStartTime);
-        DateTime.TryParseExact(endDate+" "+endTime,"yyyy/MM/dd HH:mm",CultureInfo.InvariantCulture,
+        var validEndDate = DateTime.TryParseExact(endDate+" "+endTime,"yyyy/MM/dd HH:mm",CultureInfo.InvariantCulture,
         DateTimeStyles.None, out DateTime validEndTime);
         
-        validInput = validEndTime > validStartTime;
+        if(validStartDate && validEndDate)
+            validInput = validEndTime > validStartTime;
         return validInput;
     }
 
@@ -59,14 +60,15 @@ public class DataValidation
 
     public static bool ValidateDate(string? startDate, string? endDate)
     {
-        bool validInput;
+        bool validInput = false;
         
-        DateOnly.TryParseExact(startDate, "yyyy/MM/dd",CultureInfo.InvariantCulture, 
+        var isStartDateValid = DateOnly.TryParseExact(startDate, "yyyy/MM/dd",CultureInfo.InvariantCulture, 
         DateTimeStyles.None, out DateOnly validStartDate);
-        DateOnly.TryParseExact(endDate, "yyyy/MM/dd",CultureInfo.InvariantCulture, 
+        var isEndDateValid = DateOnly.TryParseExact(endDate, "yyyy/MM/dd",CultureInfo.InvariantCulture, 
         DateTimeStyles.None, out DateOnly validEndDate);
         
-        validInput = validEndDate >= validStartDate;
+        if(isStartDateValid && isEndDateValid)
+            validInput = validEndDate >= validStartDate;
         return validInput;
     }
 
