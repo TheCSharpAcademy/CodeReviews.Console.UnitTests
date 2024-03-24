@@ -8,10 +8,19 @@ public class ValidationTests
     [TestMethod]
     public void IsValidEndAndStartTime_EndIsAfterStart_ReturnsTrue()
     {
-        DateTime startTime = new DateTime(2023, 3, 24, 10, 0, 0);
-        DateTime endTime = new DateTime(2023, 3, 24, 11, 0, 0);
+        DateTime startTime = new DateTime(2024, 3, 24, 10, 0, 0);
+        DateTime endTime = new DateTime(2024, 3, 24, 11, 0, 0);
         bool result = Validation.IsValidEndAndStartTime(startTime, endTime);
         Assert.IsTrue(result);
+    }
+
+    [TestMethod]
+    public void IsValidEndAndStartTime_EndIsBeforeStart_ReturnsFalse()
+    {
+        DateTime startTime = new DateTime(2024, 1, 24, 11, 0, 0);
+        DateTime endTime = new DateTime(2024, 1, 24, 10, 0, 0);
+        bool result = Validation.IsValidEndAndStartTime(startTime, endTime);
+        Assert.IsFalse(result);
     }
 
     [TestMethod]
