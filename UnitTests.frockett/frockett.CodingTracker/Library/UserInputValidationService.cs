@@ -59,12 +59,11 @@ public class UserInputValidationService
 
     private DateTime GetDateTime(string prompt)
     {
-        DateTime dateTime;
-        string validFormat = "dd-MM-yyyy HH:mm";
-
         var sDateTime = AnsiConsole.Ask<string>(prompt);
+
+        var (isValid, dateTime) = Validation.IsValidDateTime(sDateTime);
         
-        while (!DateTime.TryParseExact(sDateTime, validFormat, CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTime))
+        while (!isValid)
         {
             AnsiConsole.WriteLine("\nIncorrect date/time format.");
             sDateTime = AnsiConsole.Ask<string>(prompt);
