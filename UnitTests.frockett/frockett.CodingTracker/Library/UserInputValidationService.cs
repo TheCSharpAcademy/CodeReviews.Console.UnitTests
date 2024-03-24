@@ -1,6 +1,5 @@
 ﻿using Library;
 using Spectre.Console;
-using System.Globalization;
 
 namespace frockett.CodingTracker.Library;
 

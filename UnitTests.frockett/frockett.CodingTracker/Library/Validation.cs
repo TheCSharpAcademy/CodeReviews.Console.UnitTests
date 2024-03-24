@@ -1,7 +1,4 @@
-﻿
-using System.Globalization;
-using System;
-using static System.Runtime.InteropServices.JavaScript.JSType;
+﻿using System.Globalization;
 
 namespace Library;
 
