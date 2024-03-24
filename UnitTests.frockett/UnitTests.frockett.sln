@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "frockett.CodingTracker", "f
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Library", "frockett.CodingTracker\Library\Library.csproj", "{26FEE0E8-CC96-484E-87A8-2A449DD388E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests.frockett", "UnitTests.frockett1\UnitTests.frockett.csproj", "{B3AC7CC9-4F2E-492A-B4C9-5C7E27A7DA99}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingTracker.Test.frockett", "UnitTests.frockett1\CodingTracker.Test.frockett.csproj", "{B3AC7CC9-4F2E-492A-B4C9-5C7E27A7DA99}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
