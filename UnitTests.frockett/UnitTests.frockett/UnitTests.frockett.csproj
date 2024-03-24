@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\frockett.CodingTracker\frockett.CodingTracker\frockett.CodingTracker.csproj" />
+    <ProjectReference Include="..\frockett.CodingTracker\Library\Library.csproj" />
+  </ItemGroup>
+
 </Project>
