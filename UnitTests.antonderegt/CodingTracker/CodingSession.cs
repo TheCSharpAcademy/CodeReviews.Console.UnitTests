@@ -5,10 +5,5 @@ public class CodingSession
     public int Id { get; set; }
     public DateTime StartTime { get; set; }
     public DateTime EndTime { get; set; }
-    public TimeSpan Duration { get => CalculateDuration(); }
-
-    private TimeSpan CalculateDuration()
-    {
-        return EndTime - StartTime;
-    }
+    public TimeSpan Duration => EndTime - StartTime;
 }
