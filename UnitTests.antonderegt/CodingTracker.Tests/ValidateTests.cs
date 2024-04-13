@@ -1,3 +1,5 @@
+using System;
+
 namespace CodingTracker.Tests;
 
 [TestClass]
@@ -101,40 +103,12 @@ public class ValidateTests
     }
 
     [TestMethod]
-    public void ParseSessionId_InputIsValidId_ReturnsId()
+    [DataRow("abc", -1)]
+    [DataRow("-8", -1)]
+    [DataRow("1", 1)]
+    [DataRow("15", 15)]
+    public void ParseSessionId_GivenInput_ReturnsExpectedResult(string input, int expected)
     {
-        // Arrange
-        string input = "1";
-        int expected = 1;
-
-        // Act
-        int actual = Validate.ParseSessionId(input);
-
-        // Assert
-        Assert.AreEqual(expected, actual);
-    }
-
-    [TestMethod]
-    public void ParseSessionId_InputIsNotANumber_ReturnsNegativeOne()
-    {
-        // Arrange
-        string input = "abc";
-        int expected = -1;
-
-        // Act
-        int actual = Validate.ParseSessionId(input);
-
-        // Assert
-        Assert.AreEqual(expected, actual);
-    }
-
-    [TestMethod]
-    public void ParseSessionId_InputIsNegativeNumber_ReturnsNegativeOne()
-    {
-        // Arrange
-        string input = "-8";
-        int expected = -1;
-
         // Act
         int actual = Validate.ParseSessionId(input);
 
