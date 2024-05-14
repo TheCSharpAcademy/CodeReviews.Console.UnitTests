@@ -50,6 +50,10 @@ internal class UInterface
         ViewRecords(records);
 
         var id = GetNumber("Enter the id you want to delete");
+        while (id > records.Count())
+        {
+            id = GetNumber("Enter the id you want to delete");
+        }
 
         if (!AnsiConsole.Confirm("Are you sure?"))
         {
@@ -89,15 +93,26 @@ internal class UInterface
         ViewRecords(records);
 
         var id = GetNumber("Please type the id of the habit... or type 0 to return");
+        while (id > records.Count())
+        {
+            id = GetNumber("Please type the id of the habit... or type 0 to return");
+
+        }
 
         var record = records.Where(x => x.Id == id).Single();
+        
         var dates = GetDateInputs();
 
         record.DateStart = dates[0];
         record.DateEnd = dates[1];
         record.Duration = (int)(record.DateEnd - record.DateStart).TotalMinutes;
 
-        dataAcess.UpdateRecord(record);
+        var response = dataAcess.UpdateRecord(record);
+
+
+        var responseMessage = response < 1 ? $"{id} doesn' exist. Press any key to return..." : "Id deleted successfully. Press any key to return...";
+
+        Console.WriteLine(responseMessage);
     }
 
     public static int GetNumber(string message)
@@ -107,9 +122,13 @@ internal class UInterface
         {
             MainMenu();
         }
+        while (!Validation.IsValidInt(numberInput) || !Validation.IsPositiveInt(numberInput))
+        {
+            numberInput = AnsiConsole.Ask<string>(message);
+        }
+        //considera que a conversão será verdadeira
 
-        var output = Validation.ValidateInt(numberInput, message);
-        return output;
+        return int.Parse(numberInput);
     }
 
     public static void AddRecord()

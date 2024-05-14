@@ -1,25 +1,32 @@
 ﻿using Spectre.Console;
 using System.Globalization;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace CodingTrackerV2.Helpers;
 
 public class Validation
 {
-    public static int ValidateInt(string input, string message)
+    //ask date != validate int
+   
+
+    public static bool IsValidInt(string input)
     {
-        int output = 0;
-        while (!int.TryParse(input, out output) || Convert.ToInt32(input) < 0)
-        {
-            input = AnsiConsole.Ask<string>("Invalid number:" + message);
-        }
-        return output;
+        int result;
+        return int.TryParse(input, out result);
     }
+
+    public static bool IsPositiveInt(string input)
+    {
+        return int.Parse(input) > 0;
+    }
+
+   
 
     public static DateTime ValidateStartDate(string input)
     {
         DateTime date;
 
-        while (!DateTime.TryParseExact(input, "dd-MM-yy HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out date))
+        while (!DateTime.TryParseExact(input, "dd-MM-yy HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out date)) //IsValidDateTime
         {
             //só os returns podem ser validados
             input = AnsiConsole.Ask<string>("\n Invalid date...");
@@ -35,7 +42,7 @@ public class Validation
             endDateInput = AnsiConsole.Ask<string>("\nInvalid date...");
         }
 
-        while (startDate > endDate)
+        while (startDate > endDate) //Is valid EndDate
         {
             endDateInput = AnsiConsole.Ask<string>("\n\nEnd date can't be before start date...");
 

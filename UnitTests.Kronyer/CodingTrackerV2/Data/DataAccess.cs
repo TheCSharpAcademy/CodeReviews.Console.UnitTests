@@ -57,14 +57,15 @@ public class DataAccess
         }
     }
 
-    public void UpdateRecord(CodingRecord updated)
+    public int UpdateRecord(CodingRecord updated)
     {
         using (var connection = new SqliteConnection(connectionString))
         {
             connection.Open();
             string updateQuery = @"UPDATE records SET DateStart = @DateStart, DateEnd = @DateEnd WHERE Id = @Id";
 
-            connection.Execute(updateQuery, new { updated.DateStart, updated.DateEnd, updated.Id });
+            var response = connection.Execute(updateQuery, new { updated.DateStart, updated.DateEnd, updated.Id });
+            return response;
         }
     }
 

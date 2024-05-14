@@ -6,17 +6,46 @@ namespace CodingTrackerV2.UnitTests;
 public class ValidationTests
 {
     [TestMethod]
-    public void ValidateInt_InputValidNumber_ReturnsNumber()
+    public void IsValidInt_InputValidNumber_ReturnsTrue()
     {
         //arrange
         string input = "5";
-        string message = "Enter a number: ";
 
         //act
-        int result = Validation.ValidateInt(input, message);
+        bool result = Validation.IsValidInt(input);
 
         //assert
-        Assert.AreEqual(5, result);
+        Assert.AreEqual(true, result);
+    }
+
+    public void IsValidInt_InputInvalidNumber_ReturnsFalse()
+    {
+        //arrange
+        string input = "x";
+
+        //act
+        bool result = Validation.IsValidInt(input);
+
+        //assert
+        Assert.AreEqual(false, result);
+    }
+
+    public void IsPositiveInt_InputPositiveNumber_ReturnsTrue()
+    {
+        string input = "3";
+
+        bool result = Validation.IsPositiveInt(input);
+
+        Assert.AreEqual(true, result);
+    }
+
+    public void IsPositiveInt_InputNegativeNumber_ReturnsFalse()
+    {
+        string input = "-3";
+
+        bool result = Validation.IsPositiveInt(input);
+
+        Assert.AreEqual(false, result);
     }
 
     [TestMethod]
