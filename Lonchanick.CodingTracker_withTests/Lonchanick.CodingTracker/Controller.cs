@@ -107,7 +107,7 @@ public class Controller
         Console.ReadLine();
     }
 
-    static int GetValidInteger(string Lable)
+    public static int GetValidInteger(string Lable)
     {
         string userInput = string.Empty;
         int result;
