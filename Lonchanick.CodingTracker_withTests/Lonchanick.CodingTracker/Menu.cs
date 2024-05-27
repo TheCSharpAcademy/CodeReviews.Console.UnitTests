@@ -6,7 +6,7 @@ internal class Menu
     {
         string aux;
         int op;
-
+        
         do
         {
             Console.Clear();
@@ -53,10 +53,7 @@ internal class Menu
                     Console.ReadLine();
                     break;
             }
-
-
         } while (true);
-
 
         int GetValidInteger(string param)
         {
@@ -68,14 +65,10 @@ internal class Menu
                 Console.Write($"Type {param}: ");
                 aux = Console.ReadLine();
             }
-
             return result;
         }
     }
-
 }
-
-
 enum Options
 {
     CreateNewRecord,

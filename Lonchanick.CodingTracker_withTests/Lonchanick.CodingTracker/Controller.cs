@@ -27,7 +27,6 @@ public class Controller
             Console.WriteLine("Something Went wrong!");
 
         Console.ReadLine();
-
     }
     internal static void ReadAllRecords()
     {
@@ -81,7 +80,6 @@ public class Controller
             Header = new PanelHeader("Total Span"),
             Padding = new Padding(1, 1, 1, 1)
         };
-
         AnsiConsole.Write(panel);
     }
 
@@ -118,7 +116,6 @@ public class Controller
             userInput = Console.ReadLine();
 
         } while (!int.TryParse(userInput, out result));
-
         return result;
     }
 

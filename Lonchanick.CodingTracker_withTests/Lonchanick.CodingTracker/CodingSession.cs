@@ -6,5 +6,4 @@ internal class CodingSession
     public DateTime DateTimeSessionInit { get; set; }
     public DateTime DateTimeSessionEnd { get; set; }
     public TimeSpan Duration { get; set; }
-
 }

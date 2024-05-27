@@ -22,7 +22,6 @@ internal class Repository
             else 
                 return null;
         }
-
     }
 
     internal static bool Insert(CodingSession codSess)
