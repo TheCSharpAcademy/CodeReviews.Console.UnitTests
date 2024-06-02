@@ -71,22 +71,7 @@ namespace ConConfig
             Console.Clear();
             Console.WriteLine("=> INSERT");
 
-            bool isValidSession = false;
-            DateTime startTime = InputUtils.GetValidTime();
-            DateTime endTime = InputUtils.GetValidTime("end");
-            while (!isValidSession)
-            {
-                if (startTime.CompareTo(endTime) <= 0)
-                {
-                    isValidSession = true;
-                    continue;
-                }
-                Console.WriteLine("[!] Start time should not later than end time.\n");
-                startTime = InputUtils.GetValidTime();
-                endTime = InputUtils.GetValidTime("end");
-            }
-
-            CodingSession codingSession = new CodingSession(startTime, endTime);
+            CodingSession codingSession = CodeSessionHelper.InputExercise();
             codingSession.Id = CodingSessionDBHelper.Insert(codingSession);
             if (codingSession.Id != -1)
             {
@@ -135,9 +120,9 @@ namespace ConConfig
 
             HashSet<int> ids = codingSessionCache.Select(x => x.Id).ToHashSet<int>();
 
-            int id = InputUtils.GetValidInputId(ids);
-            DateTime startTime = InputUtils.GetValidTime();
-            DateTime endTime = InputUtils.GetValidTime("end");
+            int id = CodeSessionHelper.GetValidInputId(ids);
+            DateTime startTime = CodeSessionHelper.GetValidStartDate();
+            DateTime endTime = CodeSessionHelper.GetValidEndDate(startTime);
 
             CodingSession codingSession = codingSessionCache.Where(session => session.Id == id).ToList()[0];
             codingSession.StartTime = startTime;
@@ -156,7 +141,7 @@ namespace ConConfig
             if (codingSessionCache == null || codingSessionCache.Count == 0) return;
 
             HashSet<int> ids = codingSessionCache.Select(x => x.Id).ToHashSet<int>();
-            int id = InputUtils.GetValidInputId(ids);
+            int id = CodeSessionHelper.GetValidInputId(ids);
             CodingSessionDBHelper.Delete(id);
 
             codingSessionCache = CodingSessionDBHelper.SeleteAll(); // Update the cache after deleting a record
