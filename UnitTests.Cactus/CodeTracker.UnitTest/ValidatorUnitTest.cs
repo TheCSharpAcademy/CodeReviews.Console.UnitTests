@@ -6,14 +6,12 @@ namespace CodeTracker.UnitTest
     public class ValidatorUnitTest
     {
         [TestMethod]
-        public void IsValidDate_DateInFormat_ReturnTrue()
+        [DataRow("12:12 06-02-2024")]
+        [DataRow("02:02 06-02-2024")]
+        public void IsValidDate_FormattedDate_ReturnTrue(string dateStr)
         {
-            // Arrange
-            string dateStr = "12:12 06-02-2024";
-            DateTime date;
-
             // Act
-            bool res = Validator.IsValidDate(dateStr, out date);
+            bool res = Validator.IsValidDate(dateStr, out _);
 
             // Assert
             Assert.IsTrue(res);
@@ -21,14 +19,14 @@ namespace CodeTracker.UnitTest
 
 
         [TestMethod]
-        public void IsValidDate_DateOutFormat_ReturnFalse()
+        [DataRow("2:12 06-02-2024")]
+        [DataRow("12:2 06-02-2024")]
+        [DataRow("12:12 6-2-2024")]
+        [DataRow("12-12 6-2-2024")]
+        public void IsValidDate_NonFormatttedDate_ReturnFalse(string dateStr)
         {
-            // Arrange
-            string dateStr = "12-12 06-02-2024";
-            DateTime date;
-
             // Act
-            bool res = Validator.IsValidDate(dateStr, out date);
+            bool res = Validator.IsValidDate(dateStr, out _);
 
             // Assert
             Assert.IsFalse(res);
@@ -36,14 +34,12 @@ namespace CodeTracker.UnitTest
 
 
         [TestMethod]
-        public void IsValidDate_IsNotDate_ReturnFalse()
+        [DataRow("1")]
+        [DataRow("nonDateStr")]
+        public void IsValidDate_IsNotDate_ReturnFalse(string nonDateStr)
         {
-            // Arrange
-            string dateStr = "isnotdate";
-            DateTime date;
-
             // Act
-            bool res = Validator.IsValidDate(dateStr, out date);
+            bool res = Validator.IsValidDate(nonDateStr, out _);
 
             // Assert
             Assert.IsFalse(res);
