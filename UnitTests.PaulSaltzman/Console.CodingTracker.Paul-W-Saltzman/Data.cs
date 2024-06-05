@@ -18,7 +18,6 @@ namespace CodingTracker.Paul_W_Saltzman
             {
                 if (Directory.Exists(projectPath + dbPath))
                 {
-                    //Console.WriteLine("The directory exists.");
                     exists = true;
                 }
                 else
@@ -168,10 +167,9 @@ namespace CodingTracker.Paul_W_Saltzman
             using (var connection = new SqliteConnection(connectionString))
             {
 
-                if (settings.Version < 1)//So I can switch version and add more data if needed just add more if statements as needed.
+                if (settings.Version < 1)
                 {
                     connection.Open();
-                    var tableCmd = connection.CreateCommand();
                     try
                     {
 
@@ -280,7 +278,6 @@ namespace CodingTracker.Paul_W_Saltzman
         internal static void DeleteSession(CodingSession session)
         {
             string connectionString = ConnectionString();
-            string formattedTimeSpan = $"{(int)session.TimeSpan.TotalHours:D2}:{session.TimeSpan.Minutes:D2}:{session.TimeSpan.Seconds:D2}";
             using (var connection = new SqliteConnection(connectionString))
             {
                 connection.Open();
@@ -294,10 +291,6 @@ namespace CodingTracker.Paul_W_Saltzman
                     if (rowsAffected > 0)
                     {
                         Console.WriteLine($@"{rowsAffected} rows deleted.");
-                    }
-                    else
-                    {
-                        // The insert did not affect any rows (may indicate an issue).
                     }
                 }
                 catch (Exception exception)
@@ -584,10 +577,6 @@ namespace CodingTracker.Paul_W_Saltzman
                             {
                                 Console.WriteLine($@"{rowsAffected} rows added.");
                             }
-                            else
-                            {
-                                
-                            }
                         }
                         catch (Exception exception)
                         {
@@ -635,7 +624,7 @@ namespace CodingTracker.Paul_W_Saltzman
                     $"UPDATE weekly_totals SET trophy_presented = '{trophPresented}' WHERE weekly_id = '{weekly.WeeklyId}'";
                 try
                 {
-                    int rowsAffected = tableCmd.ExecuteNonQuery();
+                    tableCmd.ExecuteNonQuery();
                 }
                 catch (Exception exception)
                 {
@@ -748,7 +737,6 @@ namespace CodingTracker.Paul_W_Saltzman
                                 Goal = TimeSpan.Parse(reader.GetString(2), CultureInfo.InvariantCulture)
                             };
                         }
-                        else { }
                     }
                 }
                 else
@@ -758,8 +746,6 @@ namespace CodingTracker.Paul_W_Saltzman
                 connection.Close();
                 return goal;
             }
-
-
         }
 
         internal static List<Goals> LoadGoals()

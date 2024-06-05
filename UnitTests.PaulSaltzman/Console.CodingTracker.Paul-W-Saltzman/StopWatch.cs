@@ -11,7 +11,6 @@ namespace CodingTracker.Paul_W_Saltzman
         {
             CodingSession session = new CodingSession();
             Stopwatch stopwatch = new Stopwatch();
-            //session.StartTime = DateTime.Now;
             
             TimeSpan ts = stopwatch.Elapsed;
             Console.WriteLine("\u001b[2J\u001b[3J"); //console clear does not work correctly in windows 11
@@ -29,8 +28,6 @@ namespace CodingTracker.Paul_W_Saltzman
             Console.ReadLine();
             stopwatch.Start();
             Console.WriteLine(); session.StartTime = DateTime.Now;
-
-            Task updateElapsedTask = UpdateElapsedTimeAsync(stopwatch);
 
             Console.ReadLine();
 

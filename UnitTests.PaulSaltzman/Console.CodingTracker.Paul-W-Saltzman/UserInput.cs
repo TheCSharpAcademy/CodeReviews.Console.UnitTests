@@ -50,8 +50,8 @@ namespace CodingTracker.Paul_W_Saltzman
         {
             TimeOnly timeInput = new TimeOnly();
             string timeFormat = "h:mm tt";
-            if (TimeOnly.TryParseExact(userInput, timeFormat, null, System.Globalization.DateTimeStyles.None, out timeInput))
-            { }
+            TimeOnly.TryParseExact(userInput, timeFormat, null, System.Globalization.DateTimeStyles.None, out timeInput);
+            
             return timeInput;
         }
         public static bool CanParseTimeSpan(string userInput)

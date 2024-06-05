@@ -187,7 +187,9 @@ namespace CodingTracker.Paul_W_Saltzman
                 exists = true;
             }
             else
-            { }
+            {
+                exists = false;
+            }
             return exists;
         }
         internal static CodingSession GetSession(int id)
@@ -196,12 +198,6 @@ namespace CodingTracker.Paul_W_Saltzman
             List<CodingSession> sessions = Data.LoadSessions();
             CodingSession session = sessions.FirstOrDefault(session => session.Id == id);
 
-            if (session != null)
-            {
-
-            }
-            else
-            { }
             return session;
         }
         internal static CodingSession UpdateAll(CodingSession session)

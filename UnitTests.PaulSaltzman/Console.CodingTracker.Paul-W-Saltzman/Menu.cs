@@ -416,7 +416,6 @@ namespace CodingTracker.Paul_W_Saltzman
                 if (randomCreate >= 1 && randomCreate <= 50)// between 1 and 50
                 {
                     List<CodingSession> sessions = new List<CodingSession>();
-                    Random random = new Random();
                     for (int i = 0; i < randomCreate; i++)
                     {
                         CodingSession session = CodingSession.GenerateRandomSession();
@@ -575,7 +574,7 @@ namespace CodingTracker.Paul_W_Saltzman
                     case "D":
                         Data.DeleteSession(session);
                         CodingSession.CheckGoals(session, 1);
-                        Console.WriteLine("\u001b[2J\u001b[3J"); //console clear does not work correctly in windows 11;
+                        Console.WriteLine("\u001b[2J\u001b[3J"); 
                         Console.Clear();
                         Console.WriteLine();
                         Console.WriteLine();
