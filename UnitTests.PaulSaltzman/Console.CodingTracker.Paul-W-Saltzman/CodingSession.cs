@@ -294,7 +294,6 @@ namespace CodingTracker.Paul_W_Saltzman
                     weekly.TrophyPresented = true;
                     Data.MarkPresented(weekly);
                 }
-                else { }
             }
             
         }
