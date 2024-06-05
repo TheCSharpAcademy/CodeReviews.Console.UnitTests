@@ -67,8 +67,8 @@ namespace CodingTracker.Paul_W_Saltzman
         public static TimeSpan ParseTimeSpan(string userInput)
         {
             TimeSpan timeInput = new TimeSpan();
-            if (TimeSpan.TryParseExact(userInput,"hh\\:mm\\:ss", null, out timeInput))
-            { }
+            TimeSpan.TryParseExact(userInput, "hh\\:mm\\:ss", null, out timeInput);
+            
             return timeInput;
         }
     }

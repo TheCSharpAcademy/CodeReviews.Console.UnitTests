@@ -281,7 +281,6 @@ namespace CodingTracker.Paul_W_Saltzman
                     daily.TrophyPresented = true;
                     Data.MarkPresented(daily);
                 }
-                else { }
             }
 
 

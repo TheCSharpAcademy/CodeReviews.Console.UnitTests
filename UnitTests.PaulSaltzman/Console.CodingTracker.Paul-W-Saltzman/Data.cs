@@ -603,7 +603,7 @@ namespace CodingTracker.Paul_W_Saltzman
                     $"UPDATE daily_totals SET trophy_presented = '{trophyPresented}' WHERE daily_id = '{daily.DailyId}'";
                 try
                 {
-                    int rowsAffected = tableCmd.ExecuteNonQuery();
+                    tableCmd.ExecuteNonQuery();
                 }
                 catch (Exception exception)
                 {
@@ -793,7 +793,7 @@ namespace CodingTracker.Paul_W_Saltzman
             {
 
                 connection.Open();
-                var tableCmd = connection.CreateCommand();
+                connection.CreateCommand();
                 try
                 {
                     ExecuteCommand(connection, $@"UPDATE goals SET goal = '{goalTime}' WHERE goal_id = '{goal.GoalId}'");
