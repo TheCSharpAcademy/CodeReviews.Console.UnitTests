@@ -1,10 +1,7 @@
-﻿using System.Globalization;
-
-namespace CodeTrackerConfigFirst
+﻿namespace CodeTrackerConfigFirst
 {
     public class Validation
     {
-
         public static int GetNumberInput(string message)
         {
             Console.WriteLine(message);
@@ -16,23 +13,93 @@ namespace CodeTrackerConfigFirst
                 MainMenu.GetUserInput();
             }
 
-            try
+            bool PassedIsNot0Test = IsNot0(numberInput);
+            bool PassedIsValidIntTest = IsValidInt(numberInput);
+            bool PassedIsNonNegativeNumber = IsNonNegativeNumber(numberInput);
+            bool PassedIsNonStringValue = IsNonStringValue(numberInput);
+
+            if (PassedIsNot0Test == false || PassedIsValidIntTest == false || PassedIsNonNegativeNumber == false || PassedIsNonStringValue)
             {
-                while (!int.TryParse(numberInput, out _) || Convert.ToInt32(numberInput) < 0)
-                {
-                    Console.WriteLine("\n\nInvalid number. Try again.\n\n");
-                    numberInput = Console.ReadLine();
-                }
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("\n\nInvalid input format. Please enter a valid number.\n\n");
-                throw; // Re-throw the caught exception to propagate it further
+                Console.WriteLine("Invalid Input. Press Any Key To Go back to MainMenu");
+                Console.ReadLine();
+                MainMenu.GetUserInput();
             }
 
-            int finalInput = Convert.ToInt32(numberInput);
+            Console.WriteLine("All validation passed. Proceeding to converting to finalInput and start handling given RecordId Entry");
+            
+            int finalInput = ConvertNumberInputToFinalInput(numberInput);
 
             return finalInput;
-        }   
-    }
+        }
+
+        public static bool IsNot0(string input)
+        {
+            int parsedNumber;
+
+            bool isInteger = int.TryParse(input, out parsedNumber);
+
+            if (isInteger && parsedNumber != 0)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
+        public static bool IsValidInt(string input)
+        {
+            int parsedNumber; 
+
+            bool isInteger = int.TryParse(input, out parsedNumber);
+
+            if (isInteger)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
+        public static bool IsNonNegativeNumber(string input)
+        {
+            int parsedNumber;
+
+            bool isInteger = int.TryParse(input, out parsedNumber);
+
+            if (isInteger && parsedNumber >= 0)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
+        public static bool IsNonStringValue(string input)
+        {
+            bool isInteger = int.TryParse(input, out int parsedNumber);
+
+            if (isInteger && parsedNumber >= 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public static int ConvertNumberInputToFinalInput(string numberInput)
+        {
+            int finalnumber;
+
+            int.TryParse(numberInput, out finalnumber);
+
+            return finalnumber;
+        }        
+    }    
 }

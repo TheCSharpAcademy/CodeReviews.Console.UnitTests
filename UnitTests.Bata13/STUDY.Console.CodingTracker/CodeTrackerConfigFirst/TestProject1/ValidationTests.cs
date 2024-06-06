@@ -2,81 +2,53 @@ using CodeTrackerConfigFirst;
 
 namespace TestProject1
 {
-    [TestClass]    
+    [TestClass]
     public class ValidationTests
-    {      
+    {
         [TestMethod]
-        [DataRow(1)]
-        [DataRow(53)]
-        [DataRow(9999999)]
-        public void ValidationTest_ForPositiveNumber_ReturnSuccess(int positiveNumberInput)
+        [DataRow("1")]
+        [DataRow("53")]
+        [DataRow("9999999")]
+        public void IsValidInt_ForPositiveInteger_ReturnTrue(string numberInput)
         {
-            // Arrange
-            string message = "\n\nPlease type Id of the record you would like to update. Type 0 to go back to Main Menu.\n\n";
+            //act
+            bool PassedIsValidIntTest = Validation.IsValidInt(numberInput);
 
-            string userInput = positiveNumberInput.ToString() + "\n";
-            StringReader stringReader = new StringReader(userInput);
-            Console.SetIn(stringReader);
-
-            // Act
-            int finalInput = Validation.GetNumberInput(message);
-
-            // Assert
-            Assert.AreEqual(positiveNumberInput, finalInput);
+            //assert
+            Assert.AreEqual(true, PassedIsValidIntTest);
         }
 
         [TestMethod]
-        [DataRow(-3)]
-        public void ValidationTest_ForNegativeNumber_ReturnError(int negativeNumberInput)
+        [DataRow("-3")]
+        public void IsNonNegativeNumber_ForNegativeNumber_ReturnFalse(string numberInput)
         {
-            // Arrange
-            string message = "\n\nPlease type Id of the record you would like to update. Type 0 to go back to Main Menu.\n\n";
+            // Act 
+            bool PassedIsNonNegativeNumber = Validation.IsNonNegativeNumber(numberInput);
 
-            string userInput = negativeNumberInput.ToString() + "\n";
-            StringReader stringReader = new StringReader(userInput);
-            Console.SetIn(stringReader);
-
-            // Act
-            int finalInput = Validation.GetNumberInput(message);
-
-            // Assert
-            Assert.AreEqual(negativeNumberInput, finalInput);
+            //Assert
+            Assert.AreEqual(false, PassedIsNonNegativeNumber);
         }
-
+               
         [TestMethod]
-        [DataRow(0)]
-        public void ValidationTest_ForUserInput0_ReturnError(int zero)
+        [DataRow("0")]
+        public void IsNot0_ForUserInput0_ReturnFalse(string numberInput)
         {
-            // Arrange
-            string message = "\n\nPlease type Id of the record you would like to update. Type 0 to go back to Main Menu.\n\n";
+            // Act 
+            bool PassedIsNot0Test = Validation.IsNot0(numberInput);
 
-            string userInput = zero.ToString() + "\n";
-            StringReader stringReader = new StringReader(userInput);
-            Console.SetIn(stringReader);
-
-            // Act
-            int finalInput = Validation.GetNumberInput(message);
-
-            // Assert
-            Assert.AreEqual(zero, finalInput);
+            //Assert
+            Assert.AreEqual(false, PassedIsNot0Test);
         }
 
         [TestMethod]
         [DataRow("Seven")]
-        public void ValidationTest_ForStringInput_ReturnError(string stringInput)
+        public void IsNonStringValue_ForStringInput_ReturnFalse(string numberInput)
         {
-            // Arrange
-            string message = "\n\nPlease type Id of the record you would like to update. Type 0 to go back to Main Menu.\n\n";
-
-            string userInput = stringInput.ToString() + "\n";
-            StringReader stringReader = new StringReader(userInput);
-            Console.SetIn(stringReader);
-
             // Act
-            int finalInput = Validation.GetNumberInput(message);
+            bool PassedIsNonStringValue = Validation.IsNonStringValue(numberInput);
 
             // Assert
-            Assert.IsTrue(finalInput.ToString() == stringInput);
-        }      
+            Assert.AreEqual(false, PassedIsNonStringValue);
+        }
     }
 }
