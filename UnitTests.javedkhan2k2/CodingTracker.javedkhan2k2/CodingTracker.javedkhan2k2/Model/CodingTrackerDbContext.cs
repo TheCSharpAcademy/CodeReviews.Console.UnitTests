@@ -36,7 +36,7 @@ internal class CodingTrackerDbContext
         string? eDate;
         DateTime startDate = new DateTime(2022, 1, 1);
         int range = (DateTime.Today - startDate).Days;
-        for (int i = 0; i < 1000; i++)
+        for (int i = 0; i < 50; i++)
         {
             // https://stackoverflow.com/questions/194863/random-date-in-c-sharp
             var tempDate = startDate

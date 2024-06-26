@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingTracker.javedkhan2k2", "CodingTracker.javedkhan2k2\CodingTracker.javedkhan2k2.csproj", "{0B638E9F-D138-46F6-AB50-8F4AA2E16666}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingTracker.javedkhan2k2.Tests", "CodingTracker.javedkhan2k2.Tests\CodingTracker.javedkhan2k2.Tests.csproj", "{36765DBB-8171-4D02-B080-F0D6AA0FC426}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{0B638E9F-D138-46F6-AB50-8F4AA2E16666}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0B638E9F-D138-46F6-AB50-8F4AA2E16666}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0B638E9F-D138-46F6-AB50-8F4AA2E16666}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36765DBB-8171-4D02-B080-F0D6AA0FC426}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36765DBB-8171-4D02-B080-F0D6AA0FC426}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36765DBB-8171-4D02-B080-F0D6AA0FC426}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36765DBB-8171-4D02-B080-F0D6AA0FC426}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

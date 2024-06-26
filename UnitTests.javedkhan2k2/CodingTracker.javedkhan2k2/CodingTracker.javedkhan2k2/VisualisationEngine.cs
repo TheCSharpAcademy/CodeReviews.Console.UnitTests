@@ -103,7 +103,7 @@ internal static class VisualisationEngine
 
     internal static void DisplayInvalidDateInputError(string startTime, string endTime)
     {
-        if (!Validation.IsValidDateTimeInputs(startTime, endTime))
+        if (!Validation.IsValidDateTimeInputs(startTime, endTime, "yyyy-MM-dd HH:mm:ss"))
         {
             AnsiConsole.Markup($"End Date Time [bold green]{endTime}[/] should be later than Start Date Time [bold green]{startTime}[/]\n");
         }

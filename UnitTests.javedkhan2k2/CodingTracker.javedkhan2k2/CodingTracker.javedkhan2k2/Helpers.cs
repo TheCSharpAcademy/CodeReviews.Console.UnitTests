@@ -5,7 +5,7 @@ internal static class Helpers
 {
     internal static long CalculateDuration(string startDate, string endDate)  
     {
-        if (!Validation.IsValidDateTimeInputs(startDate, endDate))
+        if (!Validation.IsValidDateTimeInputs(startDate, endDate, "yyyy-MM-dd HH:mm:ss"))
         {
             return 0;
         }

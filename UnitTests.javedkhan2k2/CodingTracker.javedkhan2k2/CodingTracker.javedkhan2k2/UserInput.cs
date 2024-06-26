@@ -9,7 +9,7 @@ internal static class UserInput
     internal static string GetDateTimeInput(string message)
     {
         string? userInput = AnsiConsole.Ask<string?>($"{message} Or Enter 0 to cancel:");
-        while (!Validation.IsValidDateTimeInput(userInput))
+        while (!Validation.IsValidDateInput(userInput, "yyyy-MM-dd HH:mm:ss"))
         {
             userInput = AnsiConsole.Ask<string?>($"[bold]Invalid input [red]({userInput})[/][/].\n{message} Or Enter 0 to cancel:");
         }
@@ -54,7 +54,7 @@ internal static class UserInput
                     codingSessionDto.Duration = Helpers.CalculateDuration(codingSessionDto.StartTime, codingSessionDto.EndTime);
                     break;
                 case "Submit":
-                    if (Validation.IsValidDateTimeInputs(codingSessionDto.StartTime, codingSessionDto.EndTime))
+                    if (Validation.IsValidDateTimeInputs(codingSessionDto.StartTime, codingSessionDto.EndTime, "yyyy-MM-dd HH:mm:ss"))
                     {
                         return codingSessionDto;
                     }
@@ -105,7 +105,7 @@ internal static class UserInput
                     codingSessionDto.Duration = Helpers.CalculateDuration(codingSessionDto.StartTime, codingSessionDto.EndTime);
                     break;
                 case "Submit":
-                    if (Validation.IsValidDateTimeInputs(codingSessionDto.StartTime, codingSessionDto.EndTime))
+                    if (Validation.IsValidDateTimeInputs(codingSessionDto.StartTime, codingSessionDto.EndTime, "yyyy-MM-dd HH:mm:ss"))
                     {
                         return codingSessionDto;
                     }
@@ -163,7 +163,7 @@ internal static class UserInput
                     reportInput.Sort = GetSortInput("Enter 'a' for ascending or 'd' descending to sort the report");
                     break;
                 case "Generate Report":
-                    if (Validation.IsValidDateTimeInputs(reportInput.StartDate, reportInput.EndDate))
+                    if (Validation.IsValidDateTimeInputs(reportInput.StartDate, reportInput.EndDate, "yyyy-MM-dd"))
                     {
                         return reportInput;
                     }
@@ -221,7 +221,7 @@ internal static class UserInput
                     reportInput.Sort = GetSortInput("Enter 'a' for ascending or 'd' descending to sort the report");
                     break;
                 case "Generate Report":
-                    if (Validation.IsValidYearInputs(reportInput.StartDate, reportInput.EndDate))
+                    if (Validation.AreValidYearInputs(reportInput.StartDate, reportInput.EndDate))
                     {
                         return reportInput;
                     }
