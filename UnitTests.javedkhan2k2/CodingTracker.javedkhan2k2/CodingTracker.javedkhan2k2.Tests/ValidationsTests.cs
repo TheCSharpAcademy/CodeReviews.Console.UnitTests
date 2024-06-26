@@ -89,14 +89,6 @@ public class ValidationTests
     [DataRow("0", "")]
     [DataRow("", "2024")]
     [DataRow("2024", "")]
-    public void AreValidYearInputs_NullOrZeroInputs_ReturnFalse(string startYear, string endYear)
-    {
-        bool result = AreValidYearInputs(startYear, endYear);
-
-        Assert.IsFalse(result);
-    }
-
-    [TestMethod]
     [DataRow("2025", "2024")]
     [DataRow("2020", "2010")]
     [DataRow("-2020", "2025")]
@@ -177,6 +169,10 @@ public class ValidationTests
     [DataRow("Abc")]
     [DataRow("123Abc")]
     [DataRow("A123bc")]
+    [DataRow("-1")]
+    [DataRow("-123")]
+    [DataRow("-4560")]
+    [DataRow("-2147483648")]
     public void IsValidIntegerInput_InvalidUserInput_ReturnsFalse(string input)
     {
         bool result = IsValidIntegerInput(input);
@@ -195,18 +191,6 @@ public class ValidationTests
         bool result = IsValidIntegerInput(input);
 
         Assert.IsTrue(result);
-    }
-
-    [TestMethod]
-    [DataRow("-1")]
-    [DataRow("-123")]
-    [DataRow("-4560")]
-    [DataRow("-2147483648")]
-    public void IsValidIntegerInput_NegativeIntegerString_ReturnsFalse(string input)
-    {
-        bool result = IsValidIntegerInput(input);
-
-        Assert.IsFalse(result);
     }
 
     #endregion
