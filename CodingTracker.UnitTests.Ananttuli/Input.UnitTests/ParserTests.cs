@@ -1,7 +1,5 @@
 namespace Input.UnitTests;
 
-using Input;
-
 [TestClass]
 public class ParserTests
 {
