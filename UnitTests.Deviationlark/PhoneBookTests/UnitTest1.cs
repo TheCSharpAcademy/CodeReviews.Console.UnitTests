@@ -14,10 +14,10 @@ public class PhoneBookTest
     [TestMethod]
     [DataRow("389783333333")]
     [DataRow("")]
-    public void ValidateNumber_IsInvalidNumber_ReturnTrue(string phoneNumber)
+    public void ValidateNumber_IsValidNumber_ReturnFalse(string phoneNumber)
     {
         var result = PhoneBookValidation.ValidateNumber(phoneNumber);
-        Assert.IsTrue(result);
+        Assert.IsFalse(result);
     }
     [TestMethod]
     [DataRow("email@gmail.com")]
@@ -28,10 +28,10 @@ public class PhoneBookTest
     }
     [TestMethod]
     [DataRow("email..com")]
-    public void ValidateEmail_IsInvalidEmail_ReturnTrue(string email)
+    public void ValidateEmail_IsValidEmail_ReturnFalse(string email)
     {
         var result = PhoneBookValidation.ValidateEmail(email);
-        Assert.IsTrue(result);
+        Assert.IsFalse(result);
     }
     [TestMethod]
     [DataRow("3434")]
