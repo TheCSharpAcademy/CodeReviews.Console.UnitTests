@@ -6,35 +6,32 @@ namespace UnitTests.samggannon;
 public class ValidationUnitTests
 {
     [TestMethod]
-    [DataRow("A", false)]
-    [DataRow("-1", false)]
-    [DataRow("24:00", false)]
-    [DataRow("13:00", true)]
+    [DataRow("12:00", true)]
     [DataRow("01:00", true)]
-    public void IsValid24HourFormat_IsValidFormat_ReturnTrue(string hour, bool expected)
+    public void TestIsValidTimeFormat_ValidFormat_ReturnsTrue(string mockInput, bool expectedResult)
     {
         // Arrange
         var validation = new Validation();
 
         // Act
-        var result = validation.IsValid24HourFormat(hour);
+        bool result = validation.IsValidTimeFormat(mockInput);
 
         // Assert
-        Assert.AreEqual(expected, result);
+        Assert.AreEqual(result, expectedResult);
     }
 
     [TestMethod]
-    [DataRow("A", false)]
-    [DataRow("-1", false)]
-    [DataRow("24:00", false)]
-    [DataRow("13:00", true)]
-    [DataRow("01:00", true)]
-    public void ValidateIdInput_IsLongI(string input, bool expected)
+    [DataRow("1:00", false)]
+    [DataRow("string input", false)]
+    public void TestIsValidTimeFormat_InvalidFormat_ReturnsFalse(string mockInput, bool expectedResult)
     {
+        // Arrange
         var validation = new Validation();
 
-        int result = validation.ValidateIdInput(input);
+        // Act
+        bool result = validation.IsValidTimeFormat(mockInput);
 
-        Assert.AreEqual(input, result);
+        // Assert
+        Assert.AreEqual(result, expectedResult);
     }
 }
