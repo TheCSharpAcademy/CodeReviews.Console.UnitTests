@@ -1,5 +1,3 @@
-using CodingTracker.SamGannon.Utility;
-
 namespace UnitTests.samggannon;
 
 [TestClass]
