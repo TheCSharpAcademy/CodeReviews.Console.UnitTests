@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34701.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests.samggannon", "UnitTests.samggannon\UnitTests.samggannon.csproj", "{56644B1F-A4AB-479E-9AE2-E28D3FAEA0A0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodingTracker.SamGannon", "..\..\CodeReviews.Console.CodingTracker\CodingTracker.SamGannon\CodingTracker.SamGannon\CodingTracker.SamGannon.csproj", "{9796A175-0905-4DBD-8754-46B3F7D9336A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{56644B1F-A4AB-479E-9AE2-E28D3FAEA0A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56644B1F-A4AB-479E-9AE2-E28D3FAEA0A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56644B1F-A4AB-479E-9AE2-E28D3FAEA0A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56644B1F-A4AB-479E-9AE2-E28D3FAEA0A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9796A175-0905-4DBD-8754-46B3F7D9336A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9796A175-0905-4DBD-8754-46B3F7D9336A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9796A175-0905-4DBD-8754-46B3F7D9336A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9796A175-0905-4DBD-8754-46B3F7D9336A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E22C9D2B-CE3E-43D4-B150-3E5940C55A92}
+	EndGlobalSection
+EndGlobal
