@@ -1,5 +1,4 @@
 using CodingTracker.SamGannon.Utility;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace UnitTests.samggannon;
 
