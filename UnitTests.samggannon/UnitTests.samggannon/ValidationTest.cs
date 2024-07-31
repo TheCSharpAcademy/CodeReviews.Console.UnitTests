@@ -1,4 +1,5 @@
 using CodingTracker.SamGannon.Utility;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace UnitTests.samggannon;
 
@@ -40,13 +41,20 @@ public class ValidationTest
         Assert.AreEqual(expectedResult, actualResult);
     }
 
-//    [TestMethod]
-//    public void IsValidId_IsValid_ReturnsTrue()
-//    {
-//        // Arrange
+    [TestMethod]
+    [DataRow("-1", false)]
+    [DataRow("1.0", false)]
+    [DataRow("one", false)]
+    [DataRow("1", true)]
+    public void IsValidId_IsValid_ReturnsTrue(string Id, bool expectedResult)
+    {
+        // Arrange
+        var validation = new Validation();
 
-//        // Act
+        // Act
+        bool actualResult = validation.IsValidId(Id);
 
-//        // Assert
-//    }
+        // Assert
+        Assert.AreEqual(expectedResult, actualResult);
+    }
 }
