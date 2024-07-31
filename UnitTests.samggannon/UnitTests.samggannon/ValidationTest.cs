@@ -23,23 +23,30 @@ public class ValidationTest
         Assert.AreEqual(expectedResult, actualResult);
     }
 
-    //[TestMethod]
-    //public void IsValidDate_IsValid_ReturnsTrue()
-    //{
-    //    // Arrange
+    [TestMethod]
+    [DataRow("07312024", false)]
+    [DataRow("31-07-2024", false)]
+    [DataRow("July 31st, 2024", false)]
+    [DataRow("07-31-24", true)]
+    public void IsValidDate_IsValid_ReturnsTrue(string date, bool expectedResult)
+    {
+        // Arrange
+        var validation = new Validation();
 
-    //    // Act
+        // Act
+        bool actualResult = validation.IsValidDate(date);
 
-    //    // Assert
-    //}
+        // Assert
+        Assert.AreEqual(expectedResult, actualResult);
+    }
 
-    //[TestMethod]
-    //public void IsValidId_IsValid_ReturnsTrue()
-    //{
-    //    // Arrange
+//    [TestMethod]
+//    public void IsValidId_IsValid_ReturnsTrue()
+//    {
+//        // Arrange
 
-    //    // Act
+//        // Act
 
-    //    // Assert
-    //}
+//        // Assert
+//    }
 }
