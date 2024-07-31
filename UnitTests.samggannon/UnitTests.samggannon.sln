@@ -5,6 +5,8 @@ VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests.samggannon", "UnitTests.samggannon\UnitTests.samggannon.csproj", "{5BF9C997-B7AF-44E0-BF26-3A04A7A56E51}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodingTracker.SamGannon", "CodingTracker.SamGannon\CodingTracker.SamGannon.csproj", "{2C5ADDE0-66B1-4C7F-86D6-EBECA7758FEC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{5BF9C997-B7AF-44E0-BF26-3A04A7A56E51}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BF9C997-B7AF-44E0-BF26-3A04A7A56E51}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BF9C997-B7AF-44E0-BF26-3A04A7A56E51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C5ADDE0-66B1-4C7F-86D6-EBECA7758FEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C5ADDE0-66B1-4C7F-86D6-EBECA7758FEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C5ADDE0-66B1-4C7F-86D6-EBECA7758FEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C5ADDE0-66B1-4C7F-86D6-EBECA7758FEC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
