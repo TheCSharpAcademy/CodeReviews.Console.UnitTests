@@ -1,9 +1,5 @@
-using System;
 using System.Globalization;
-using System.Net.NetworkInformation;
-using CodingTracker.Constants;
 using CodingTracker.Services;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace CodingTracker.Tests.Services;
 
@@ -113,29 +109,16 @@ public class UserInputValidationServiceTests
     }
 
     [TestMethod]
+    [DataRow("2024-01-01", "2024-01-01", "yyyy-MM-dd")]
+    [DataRow("2024-01-01 01:01", "2024-01-01 01:01", "yyyy-MM-dd HH:mm")]
+    [DataRow("2024", "2024", "yyyy")]
+    [DataRow("2024-01", "2024-01", "yyyy-MM")]
     [DataRow("2024-01-01", "2024-01-02", "yyyy-MM-dd")]
     [DataRow("2024-01-01 01:01", "2024-01-01 02:02", "yyyy-MM-dd HH:mm")]
     [DataRow("2024", "2025", "yyyy")]
     [DataRow("2024-01", "2024-02", "yyyy-MM")]
 
-    public void IsValidReportEndDate_ShouldReturnTrue_WhenDateAsStringMatchesFormatAndIsAfterStartDate(string startDateString, string test, string format)
-    {
-        // Arrange.
-        DateTime startDate = DateTime.ParseExact(startDateString, format, CultureInfo.InvariantCulture, DateTimeStyles.None);
-
-        // Act.
-        var result = UserInputValidationService.IsValidReportEndDate(test, format, startDate);
-
-        // Assert.
-        Assert.IsTrue(result.IsValid);
-    }
-
-    [TestMethod]
-    [DataRow("2024-01-01", "2024-01-01", "yyyy-MM-dd")]
-    [DataRow("2024-01-01 01:01", "2024-01-01 01:01", "yyyy-MM-dd HH:mm")]
-    [DataRow("2024", "2024", "yyyy")]
-    [DataRow("2024-01", "2024-01", "yyyy-MM")]
-    public void IsValidReportEndDate_ShouldReturnTrue_WhenDateAsStringMatchesFormatAndIsEqualToStartDate(string startDateString, string test, string format)
+    public void IsValidReportEndDate_ShouldReturnTrue_WhenDateAsStringMatchesFormatAndIsEqualToOrAfterStartDate(string startDateString, string test, string format)
     {
         // Arrange.
         DateTime startDate = DateTime.ParseExact(startDateString, format, CultureInfo.InvariantCulture, DateTimeStyles.None);
@@ -312,25 +295,11 @@ public class UserInputValidationServiceTests
     [DataRow("2024-02-11 12:12", "2024-02-11 12:12", "yyyy-MM-dd HH:mm")]
     [DataRow("2024-07-13 18:59", "2024-07-13 18:59", "yyyy-MM-dd HH:mm")]
     [DataRow("2023-01-01 00:00", "2023-01-01 00:00", "yyyy-MM-dd HH:mm")]
-    public void IsValidCodingSessionEndDateTime_ShouldReturnFalse_WhenEndDateIsEqualToStartDateTime(string startDateTimeString, string test, string format)
-    {
-        // Arrange.
-        DateTime startDate = DateTime.ParseExact(startDateTimeString, format, CultureInfo.InvariantCulture, DateTimeStyles.None);
-
-        // Act.
-        var result = UserInputValidationService.IsValidCodingSessionEndDateTime(test, format, startDate);
-
-        // Assert.
-        Assert.IsFalse(result.IsValid);
-    }
-
-
-    [TestMethod]
     [DataRow("2024-01-01 03:03", "2024-01-01 02:02", "yyyy-MM-dd HH:mm")]
     [DataRow("2024-02-11 12:13", "2024-02-11 12:12", "yyyy-MM-dd HH:mm")]
     [DataRow("2024-07-14 01:01", "2024-07-13 18:59", "yyyy-MM-dd HH:mm")]
     [DataRow("2024-01-01 00:00", "2023-01-01 00:00", "yyyy-MM-dd HH:mm")]
-    public void IsValidCodingSessionEndDateTime_ShouldReturnFalse_WhenEndDateIsBeforeStartDateTime(string startDateTimeString, string test, string format)
+    public void IsValidCodingSessionEndDateTime_ShouldReturnFalse_WhenEndDateIsEqualToOrBeforeStartDateTime(string startDateTimeString, string test, string format)
     {
         // Arrange.
         DateTime startDate = DateTime.ParseExact(startDateTimeString, format, CultureInfo.InvariantCulture, DateTimeStyles.None);

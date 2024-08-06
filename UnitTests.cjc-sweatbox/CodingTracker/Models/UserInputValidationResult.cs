@@ -17,7 +17,7 @@ public class UserInputValidationResult
     #endregion
     #region Properties
 
-    public bool IsValid { get; init; } = false;
+    public bool IsValid { get; init; }
 
     public string Message { get; init; } = "";
 
