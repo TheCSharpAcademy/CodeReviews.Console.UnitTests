@@ -1,7 +1,7 @@
 using CodingTracker.kwm0304.Enums;
 using CodingTracker.kwm0304.Utils;
 
-namespace UnitTests.kwm0304;
+namespace Tests;
 
 [TestClass]
 public class CodingTrackerValidationTests
