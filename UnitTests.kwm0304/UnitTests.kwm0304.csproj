@@ -17,6 +17,7 @@
     <Using Include="Microsoft.VisualStudio.TestTools.UnitTesting" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="C:\Users\Owner\Desktop\CSA\CodeReviews.Console.CodingTracker\CodingTracker.kwm0304\CodingTracker.kwm0304.csproj" />
+    <ProjectReference Include="..\CodingTracker.kwm0304\CodingTracker.kwm0304.csproj" />
+    <ProjectReference Include="..\..\CodeReviews.Console.CodingTracker\CodingTracker.kwm0304\CodingTracker.kwm0304.csproj" />
   </ItemGroup>
 </Project>
