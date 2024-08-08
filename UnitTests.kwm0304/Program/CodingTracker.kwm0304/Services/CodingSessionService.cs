@@ -25,7 +25,7 @@ public class CodingSessionService
   {
     DateTime newEnd = session.EndTime;
     TimeSpan newSessionLength = session.SessionLength;
-
+    
     switch (type)
     {
       case "Seconds":
@@ -43,8 +43,8 @@ public class CodingSessionService
       default:
         throw new ArgumentException("Invalid time type");
     }
-
-    if (newEnd > DateTime.Now)
+    
+    if (newEnd > DateTime.Now || newEnd < session.StartTime)
     {
       return false;
     }

@@ -17,6 +17,7 @@ namespace CodingTracker.kwm0304.Models
       GoalName = string.Empty;
       Sessions = [];
     }
+   
 
     public Goal(string name, int target, DateRange range, int progress)
     {

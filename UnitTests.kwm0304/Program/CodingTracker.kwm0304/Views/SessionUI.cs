@@ -70,6 +70,7 @@ public class SessionUI
       if (session == null) return;
 
       string action = SelectionPrompt.ChangeEndTimeOptions();
+      
       int change = AnsiConsole.Ask<int>($"How much do you want to {action} by?");
       change = action == "Decrease" ? -change : change;
       string type = SelectionPrompt.TimeOptions();
