@@ -1,0 +1,13 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "dotnet",
+			"task": "build /home/lawang/Desktop/Academy/Lawang.Coding-Tracker/Lawang.Coding-Tracker.csproj",
+			"file": "/home/lawang/Desktop/Academy/Lawang.Coding-Tracker/Lawang.Coding-Tracker.csproj",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "dotnet: build /home/lawang/Desktop/Academy/Lawang.Coding-Tracker/Lawang.Coding-Tracker.csproj"
+		}
+	]
+}
