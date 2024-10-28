@@ -22,16 +22,6 @@ public class DateTimeValidatorTests
     [DataRow("11/02/2021")]
     [DataRow("2021-11-02")]
     [DataRow("02.11.2021")]
-    public void DateTimeValidatorValidate_InvalidFormat_ReturnsError(string date)
-    {
-        // Act
-        var result = _dateTimeValidator.Validate(date);
-  
-        // Assert
-        Assert.IsFalse(result.Successful);
-    }
-
-    [TestMethod]
     [DataRow(null)]
     [DataRow("11987-09-27 12:35")]
     [DataRow("1987-13-27 12:35")]

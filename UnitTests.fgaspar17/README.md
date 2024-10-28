@@ -1,4 +1,3 @@
-
 # CodingTracker
 
 A console-based application to track your progress in coding per day. Developed
@@ -6,22 +5,25 @@ using C#, Dapper, Spectre.Console and SQLite.
 
 ## Given Requirements
 
-- [x] To show the data on the console, you should use the "Spectre.Console" library.
-- [x] You're required to have separate classes in different files (ex. UserInput.cs,
-Validation.cs, CodingController.cs)
-- [x] You should tell the user the specific format you want the date and time to be logged
-and not allow any other format.
-- [x] You'll need to create a configuration file that you'll contain your database path
-and connection strings.
-- [x] You'll need to create a "CodingSession" class in a separate file. It will contain
-the properties of your coding session: Id, StartTime, EndTime, Duration
-- [x] The user shouldn't input the duration of the session. It should be calculated based
-on the Start and End times, in a separate "CalculateDuration" method.
+- [x] To show the data on the console, you should use the "Spectre.Console"
+library.
+- [x] You're required to have separate classes in different files
+(ex. UserInput.cs, Validation.cs, CodingController.cs)
+- [x] You should tell the user the specific format you want the date
+and time to be logged and not allow any other format.
+- [x] You'll need to create a configuration file that you'll contain your
+database path and connection strings.
+- [x] You'll need to create a "CodingSession" class in a separate file.
+It will contain the properties of your coding session: Id, StartTime,
+EndTime, Duration
+- [x] The user shouldn't input the duration of the session. It should be
+calculated based on the Start and End times, in a separate
+"CalculateDuration" method.
 - [x] The user should be able to input the start and end times manually.
-- [x] You need to use Dapper ORM for the data access instead of ADO.NET. (This requirement
-was included in Feb/2024)
-- [x] When reading from the database, you can't use an anonymous object, you have to read
-your table into a List of Coding Sessions.
+- [x] You need to use Dapper ORM for the data access instead of ADO.NET.
+(This requirement was included in Feb/2024)
+- [x] When reading from the database, you can't use an anonymous object,
+you have to read your table into a List of Coding Sessions.
 
 ## Features
 
@@ -38,8 +40,12 @@ your table into a List of Coding Sessions.
 - CRUD operations
 
   - From the first menu you can create, show or delete coding sessions.
-  - From the second menu you can create, update, show or delete goals. To choose an option you make use of arrow keys and enter, for the day you enter the date in format YYYY-MM-DD HH:mm.
-  - Showing coding sessions has two menus, one for the period(daily, weekly, yearly, all) and another for the ordering(ascending or descending).
+  - From the second menu you can create, update, show or delete goals.
+  To choose an option you make use of arrow keys and enter, for the day
+  you enter the date in format YYYY-MM-DD HH:mm.
+  - Showing coding sessions has two menus, one for the
+  period(daily, weekly, yearly, all) and another for the
+  ordering(ascending or descending).
   - ![image](https://github.com/user-attachments/assets/8fada7ff-160c-4c64-9eed-7acb3ec2a860)
   - ![image](https://github.com/user-attachments/assets/3a50c2aa-271c-4714-a109-4e1d3c74f8d9)
   - Inputs are validated to be the requested type.
@@ -90,16 +96,19 @@ the properties via a dictionary.
 
 ## Areas to Improve
 
-- Code duplication due to menu, I tried to reuse code from Habit Logger but Console.Spectre makes everything related to prompt and validation easier, so I should have created functions for the prompt types and not a menu for every prompt.
+- Code duplication due to menu, I tried to reuse code from Habit Logger
+but Console.Spectre makes everything related to prompt and validation easier,
+so I should have created functions for the prompt types and not a menu for every
+prompt.
 - DateTime and TimeSpan functions to help solve time problems in the easiest way.
 - Reflection to improve application scalability.
 
 ## Resources used
 
- - StackOverflow posts
- - [Sqlite julianday()](https://www.sqlitetutorial.net/sqlite-date-functions/sqlite-julianday-function/)
- - [Sqlite strftime()](https://www.sqlitetutorial.net/sqlite-date-functions/sqlite-julianday-function/)
- - [Spectre Console Documentation](https://www.sqlitetutorial.net/sqlite-date-functions/sqlite-julianday-function/)
- - [Learn Dapper](https://www.learndapper.com/)
- - [TimeSpan Documentation](https://learn.microsoft.com/en-us/dotnet/api/system.timespan?view=net-8.0)
- - [DateTime Documentation](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-8.0)
+- StackOverflow posts
+- [Sqlite julianday()](https://www.sqlitetutorial.net/sqlite-date-functions/sqlite-julianday-function/)
+- [Sqlite strftime()](https://www.sqlitetutorial.net/sqlite-date-functions/sqlite-julianday-function/)
+- [Spectre Console Documentation](https://www.sqlitetutorial.net/sqlite-date-functions/sqlite-julianday-function/)
+- [Learn Dapper](https://www.learndapper.com/)
+- [TimeSpan Documentation](https://learn.microsoft.com/en-us/dotnet/api/system.timespan?view=net-8.0)
+- [DateTime Documentation](https://learn.microsoft.com/en-us/dotnet/api/system.datetime?view=net-8.0)
