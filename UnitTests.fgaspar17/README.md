@@ -28,7 +28,8 @@ you have to read your table into a List of Coding Sessions.
 ## Features
 
 - SQLite database connection
-  - The data is stored in a db file which I connect to perform CRUD and analysis operations.
+  - The data is stored in a db file which I connect to perform CRUD and
+  analysis operations.
   - If the database doesn't exist, it creates one.
   - In DEBUG mode, it creates 20 random generated coding sessions records.
 
