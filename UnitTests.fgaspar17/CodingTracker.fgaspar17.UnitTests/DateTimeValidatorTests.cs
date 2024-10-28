@@ -13,7 +13,7 @@ public class DateTimeValidatorTests
         var result = _dateTimeValidator.Validate("1987-09-27 12:35");
 
         // Assert
-        Assert.IsTrue(result.Successful);
+        Assert.IsFalse(!result.Successful);
     }
 
     [TestMethod]

@@ -1,20 +1,29 @@
+
 # CodingTracker
 
-A console-based application to track your progress in coding per day. Developed using C#, Dapper, Spectre.Console and SQLite.
+A console-based application to track your progress in coding per day. Developed
+using C#, Dapper, Spectre.Console and SQLite.
 
-# Given Requirements
+## Given Requirements
 
 - [x] To show the data on the console, you should use the "Spectre.Console" library.
-- [x] You're required to have separate classes in different files (ex. UserInput.cs, Validation.cs, CodingController.cs)
-- [x] You should tell the user the specific format you want the date and time to be logged and not allow any other format.
-- [x] You'll need to create a configuration file that you'll contain your database path and connection strings.
-- [x] You'll need to create a "CodingSession" class in a separate file. It will contain the properties of your coding session: Id, StartTime, EndTime, Duration
-- [x] The user shouldn't input the duration of the session. It should be calculated based on the Start and End times, in a separate "CalculateDuration" method.
+- [x] You're required to have separate classes in different files (ex. UserInput.cs,
+Validation.cs, CodingController.cs)
+- [x] You should tell the user the specific format you want the date and time to be logged
+and not allow any other format.
+- [x] You'll need to create a configuration file that you'll contain your database path
+and connection strings.
+- [x] You'll need to create a "CodingSession" class in a separate file. It will contain
+the properties of your coding session: Id, StartTime, EndTime, Duration
+- [x] The user shouldn't input the duration of the session. It should be calculated based
+on the Start and End times, in a separate "CalculateDuration" method.
 - [x] The user should be able to input the start and end times manually.
-- [x] You need to use Dapper ORM for the data access instead of ADO.NET. (This requirement was included in Feb/2024)
-- [x] When reading from the database, you can't use an anonymous object, you have to read your table into a List of Coding Sessions.
+- [x] You need to use Dapper ORM for the data access instead of ADO.NET. (This requirement
+was included in Feb/2024)
+- [x] When reading from the database, you can't use an anonymous object, you have to read
+your table into a List of Coding Sessions.
 
-# Features
+## Features
 
 - SQLite database connection
   - The data is stored in a db file which I connect to perform CRUD and analysis operations.
@@ -54,31 +63,38 @@ A console-based application to track your progress in coding per day. Developed 
 
   - You can run `dotnet test`, so you can test the DateTime validation.
 
-# Challenges
+## Challenges
 
- - Creating a configuration file.
- - Working with DateTime and TimeSpan for dates in C#, validation and formatting.
- - Another related challenge is working with them with SQLite.
- - How to present Enum options in an understandable way for the users.
- - Using Spectre.Console for a better UI.
+- Creating a configuration file.
+- Working with DateTime and TimeSpan for dates in C#, validation and formatting.
+- Another related challenge is working with them with SQLite.
+- How to present Enum options in an understandable way for the users.
+- Using Spectre.Console for a better UI.
 
-# Lessons Learned
+## Lessons Learned
 
- - SQLite functions round(), julianday() and strftime() are really helpful for date operations.
- - TimeSpan and DateTime give you many functions to solve problems for dates and time intervals.
- - Dapper capabilities reduce code complexity for mapping models and query results.
- - Spectre.Console is a powerful library to enrich user experience in console apps.
- - Attributes and extension methods allowed me to present enum fields for the menus in a scalable and intuitive way.
- - To map unsupported types by Dapper, you can use the dynamic type and convert manually from double to TimeSpan, for example.
- - Reflection is powerful but the performance cost is high, so you should cache the properties via a dictionary.
+- SQLite functions round(), julianday() and strftime() are really helpful
+for date operations.
+- TimeSpan and DateTime give you many functions to solve problems for dates
+and time intervals.
+- Dapper capabilities reduce code complexity for mapping models and query
+results.
+- Spectre.Console is a powerful library to enrich user experience in console
+apps.
+- Attributes and extension methods allowed me to present enum fields for the
+menus in a scalable and intuitive way.
+- To map unsupported types by Dapper, you can use the dynamic type and convert
+manually from double to TimeSpan, for example.
+- Reflection is powerful but the performance cost is high, so you should cache
+the properties via a dictionary.
 
-# Areas to Improve
+## Areas to Improve
 
- - Code duplication due to menu, I tried to reuse code from Habit Logger but Console.Spectre makes everything related to prompt and validation easier, so I should have created functions for the prompt types and not a menu for every prompt.
- - DateTime and TimeSpan functions to help solve time problems in the easiest way.
- - Reflection to improve application scalability.
+- Code duplication due to menu, I tried to reuse code from Habit Logger but Console.Spectre makes everything related to prompt and validation easier, so I should have created functions for the prompt types and not a menu for every prompt.
+- DateTime and TimeSpan functions to help solve time problems in the easiest way.
+- Reflection to improve application scalability.
 
-#  Resources used
+## Resources used
 
  - StackOverflow posts
  - [Sqlite julianday()](https://www.sqlitetutorial.net/sqlite-date-functions/sqlite-julianday-function/)
