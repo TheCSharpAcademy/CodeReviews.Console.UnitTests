@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+    <database>
+        <connectionString>DataSource=CodingTracker.db;</connectionString>
+        <provider>SQLite</provider>
+    </database>
+</configuration>

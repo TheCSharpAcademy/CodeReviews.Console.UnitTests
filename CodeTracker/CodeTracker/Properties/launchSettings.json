@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CodeTracker": {
+      "commandName": "Project",
+      "workingDirectory": "D:\\C#\\cli\\UnitTests.hasona23\\UnitTests.hasona23\\CodeTracker\\CodeTracker"
+    }
+  }
+}
