@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Models\" />
+    <None Remove="Data\" />
+    <None Remove="Services\" />
+    <None Remove="Shared\" />
+    <None Remove="Models\Engines\" />
+    <None Remove="Shared\Interfaces\" />
+    <None Remove="Shared\Logger\" />
+    <None Remove="Controller\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\" />
+    <Folder Include="Data\" />
+    <Folder Include="Services\" />
+    <Folder Include="Shared\" />
+    <Folder Include="Models\Engines\" />
+    <Folder Include="Shared\Interfaces\" />
+    <Folder Include="Shared\Logger\" />
+    <Folder Include="Controller\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.8" />
+    <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="8.0.8" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.40.0" />
+    <PackageReference Include="Dapper" Version="2.1.35" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
+    <PackageReference Include="Spectre.Console" Version="0.49.1" />
+    <PackageReference Include="Spectre.Console.Cli" Version="0.49.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Configuration.ConfigurationManager">
+      <HintPath>bin\Debug\net7.0\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
