@@ -1,11 +1,9 @@
-﻿using System.Data;
-using Microsoft.Data.Sqlite;
-using Dapper;
-using Microsoft.Extensions.Configuration;
-using jollejonas.CodingTracker.Models;
-using Spectre.Console;
+﻿using jollejonas.CodingTracker.Controllers;
 using jollejonas.CodingTracker.Data;
-using jollejonas.CodingTracker.Controllers;
+using jollejonas.CodingTracker.Models;
+using Microsoft.Extensions.Configuration;
+using Spectre.Console;
+using System.Data;
 
 
 string currentDirectory = Directory.GetCurrentDirectory();
@@ -46,7 +44,8 @@ using (IDbConnection db = DatabaseManager.Connection(connectionString))
     db.Close();
 }
 
-while (true) {
+while (true)
+{
     Console.Clear();
     var goalController = new GoalController(DatabaseManager.Connection(connectionString));
     goalStatus = goalController.CalculateGoalActualDifference();
@@ -60,7 +59,7 @@ while (true) {
         .AddChoices(menuOptions)
         .UseConverter(option => option.Description));
 
-    if(menuSelection.Id == 0)
+    if (menuSelection.Id == 0)
     {
         break;
     }

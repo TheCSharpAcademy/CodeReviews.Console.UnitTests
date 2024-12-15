@@ -1,22 +1,21 @@
-﻿using System.Data;
+﻿using Dapper;
 using Microsoft.Data.Sqlite;
-using Dapper;
-using jollejonas.CodingTracker.Models;
+using System.Data;
 
-namespace jollejonas.CodingTracker.Data
+namespace jollejonas.CodingTracker.Data;
+
+public static class DatabaseManager
 {
-    public static class DatabaseManager
+    public static IDbConnection Connection(string connectionString)
     {
-        public static IDbConnection Connection(string connectionString)
-        {
-            var connection = new SqliteConnection(connectionString);
-            connection.Open();
-            return connection;
-        }
+        var connection = new SqliteConnection(connectionString);
+        connection.Open();
+        return connection;
+    }
 
-        public static void EnsureSessionDatabaseCreated(IDbConnection db)
-        {
-            string createTableQuery = @"
+    public static void EnsureSessionDatabaseCreated(IDbConnection db)
+    {
+        string createTableQuery = @"
             CREATE TABLE IF NOT EXISTS CodingSessions (
                 Id INTEGER PRIMARY KEY AUTOINCREMENT,
                 StartTime TEXT NOT NULL,
@@ -24,19 +23,18 @@ namespace jollejonas.CodingTracker.Data
                 Duration REAL NOT NULL
             )";
 
-            db.Execute(createTableQuery);
-        }
-        public static void EnsureGoalDatabaseCreated(IDbConnection db)
-        {
-            string createTableQuery = @"
+        db.Execute(createTableQuery);
+    }
+    public static void EnsureGoalDatabaseCreated(IDbConnection db)
+    {
+        string createTableQuery = @"
             CREATE TABLE IF NOT EXISTS Goals (
                 Id INTEGER PRIMARY KEY AUTOINCREMENT,
                 Duration REAL NOT NULL
             )";
 
-            db.Execute(createTableQuery);
-        }
-
-        
+        db.Execute(createTableQuery);
     }
+
+
 }
