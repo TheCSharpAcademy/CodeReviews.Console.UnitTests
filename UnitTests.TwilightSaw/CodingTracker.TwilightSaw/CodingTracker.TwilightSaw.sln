@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodingTracker.TwilightSaw", "CodingTracker.TwilightSaw.csproj", "{C0326B5D-1E7F-4869-9075-57D18B7022AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingTracker.Tests", "..\CodingTracker.Tests\CodingTracker.Tests.csproj", "{A7B4AB44-A580-4903-BEBD-B4E6683CE0C3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C0326B5D-1E7F-4869-9075-57D18B7022AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0326B5D-1E7F-4869-9075-57D18B7022AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0326B5D-1E7F-4869-9075-57D18B7022AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0326B5D-1E7F-4869-9075-57D18B7022AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7B4AB44-A580-4903-BEBD-B4E6683CE0C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7B4AB44-A580-4903-BEBD-B4E6683CE0C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7B4AB44-A580-4903-BEBD-B4E6683CE0C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7B4AB44-A580-4903-BEBD-B4E6683CE0C3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1B2A2E56-8E9B-48EF-9A63-8FB564BA4643}
+	EndGlobalSection
+EndGlobal
