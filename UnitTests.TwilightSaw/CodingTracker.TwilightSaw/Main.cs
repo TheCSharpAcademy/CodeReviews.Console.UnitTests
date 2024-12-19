@@ -15,7 +15,7 @@ connection.Open();
 
 var session = new CodingSession();
 var controller = new TrackerController(connection);
-var userInput = new UserInput();
+var userInput = new UserInput(new UserInputProvider());
 var end = true;
 
 while (end)

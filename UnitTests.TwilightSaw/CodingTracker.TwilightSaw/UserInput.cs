@@ -3,24 +3,22 @@ using Spectre.Console;
 
 namespace CodingTracker.TwilightSaw
 {
-    internal class UserInput
+    public class UserInput(IUserInputProvider inputProvider)
     {
-        private string input;
-        private int inputInt;
-        
         public int CreateSpecifiedInt(int bound, string message)
         {
-            input = Console.ReadLine();
-            while (!Int32.TryParse(input, out inputInt))
+            var inputInt = 0;
+            var input = inputProvider.ReadInput();
+            while (int.TryParse(input, out inputInt))
             {
                 Console.Write(message);
-                input = Console.ReadLine();
+                input = inputProvider.ReadInput();
             }
-            while (int.Parse(input) > bound || int.Parse(input) < 1)
+            while (!int.TryParse(input, out inputInt) || inputInt < 1 || inputInt > bound)
             {
                 Console.Write(message);
-                input = Console.ReadLine();
-                inputInt = Int32.Parse(input);
+                input = inputProvider.ReadInput();
+                int.TryParse(input, out inputInt);
             }
             return inputInt;
         }
