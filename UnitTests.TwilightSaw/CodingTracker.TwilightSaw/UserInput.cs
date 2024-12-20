@@ -9,30 +9,18 @@ namespace CodingTracker.TwilightSaw
         {
             var inputInt = 0;
             var input = inputProvider.ReadInput();
-            while (int.TryParse(input, out inputInt))
-            {
-                Console.Write(message);
-                input = inputProvider.ReadInput();
-            }
             while (!int.TryParse(input, out inputInt) || inputInt < 1 || inputInt > bound)
             {
-                Console.Write(message);
-                input = inputProvider.ReadInput();
-                int.TryParse(input, out inputInt);
+                Console.WriteLine(message); 
+                input = inputProvider.ReadInput(); 
             }
             return inputInt;
         }
 
         public string CreateRegex(string regexString, string messageStart, string messageError)
         {
-            Regex regex = new Regex(regexString);
-            var input = AnsiConsole.Prompt(
-                new TextPrompt<string>($"[lightgreen]{messageStart}[/]")
-                    .Validate(value => regex.IsMatch(value)
-                        ? ValidationResult.Success()
-                        : ValidationResult.Error(messageError)));
-            
-           return input;
+            var input = inputProvider.ReadRegexInput(regexString, messageStart, messageError);
+            return input;
         }
 
         public static CodingSession ChooseSession(List<CodingSession> data)
