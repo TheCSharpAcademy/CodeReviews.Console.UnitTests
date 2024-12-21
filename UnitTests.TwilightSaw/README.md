@@ -13,7 +13,7 @@
 
 ## Challenges and Learned Lessons
 
-- First of all, the project for unit tests itself was not written properly in terms of testability, so tests does not cover every method.
+- First of all, the project itself was not written properly in terms of testability, so tests does not cover every method.
 - As unit tests are vital for project maintaining and development, it should be foreseen in advance when you start to write the code, maybe considering the usage of TDD.
 - Mocking the data from a user are not so easy(or even impossible) when it comes to methods which take user inputs and validates them in the same context.
 
