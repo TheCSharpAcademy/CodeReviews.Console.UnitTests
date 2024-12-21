@@ -1,5 +1,4 @@
-﻿using Microsoft.Data.Sqlite;
-using Spectre.Console;
+﻿using Spectre.Console;
 
 namespace CodingTracker.TwilightSaw;
 
