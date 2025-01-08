@@ -80,8 +80,6 @@ public class CodingSessionControllerTests
         Assert.IsFalse(result);
     }
 
-
-
     [TestMethod]
     public void ValidateStartAndEndTime_StartIsEarlierThanEnd_ReturnsTrue()
     {
