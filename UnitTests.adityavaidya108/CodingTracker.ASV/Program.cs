@@ -1,14 +1,10 @@
-﻿using System;
+﻿namespace CodingTracker;
 
-namespace CodingTracker
+public class Program
 {
-    public class Program
+    public static void Main(string[] args)
     {
-        public static void Main(string[] args)
-        {
-            Database.CreateDatabase();
-            CodingTrackerController.Menu();
-        }
+        Database.CreateDatabase();
+        CodingTrackerController.Menu();
     }
-   
 }

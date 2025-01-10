@@ -38,7 +38,7 @@ public class Database
             using SQLiteConnection connection = new SQLiteConnection(connectionString);
             connection.Open();
             string sql = @"UPDATE CodingTracker SET SessionStartTime = @SessionStartTime, SessionEndTime = @SessionEndTime, SessionDuration = @SessionDuration, SessionCodingDate = @SessionCodingDate WHERE SessionId = @SessionId";
-            int rowsAffected = connection.Execute(sql, new
+            connection.Execute(sql, new
             {
                 record.SessionStartTime,
                 record.SessionEndTime,

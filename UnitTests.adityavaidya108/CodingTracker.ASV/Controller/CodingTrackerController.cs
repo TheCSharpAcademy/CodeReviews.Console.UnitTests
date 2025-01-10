@@ -1,5 +1,4 @@
-﻿using System.Reflection;
-using Spectre.Console;
+﻿using Spectre.Console;
 
 namespace CodingTracker;
 
@@ -42,7 +41,6 @@ public class CodingTrackerController
 
     private static void HandleInsertRecord()
     {
-        IEnumerable<CodingSessionModel> results;
         CodingSessionModel userSessionInput= new CodingSessionModel();
         string CodingDate;
         do
