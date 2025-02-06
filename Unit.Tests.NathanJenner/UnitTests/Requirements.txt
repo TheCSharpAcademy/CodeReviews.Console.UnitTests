@@ -1,0 +1,26 @@
+﻿Requirements:
+
+
+- In this project, you'll create unit tests for the Coding Tracker App, the second project in the course
+
+- You'll need to create a CodingTracker.Tests project, parallel to your coding tracker and reference it in your csproj file
+
+- You'll only test the validation methods, making sure the app correctly prevents the user from giving incorrect inputs
+
+- You should use .NETs MSTest Library
+
+- You should test both correct and incorrect inputs
+
+
+
+
+
+Tips:
+
+- Don't worry about integration or end-to-end tests, they're out of the scope of this project
+
+- Make sure the names of your tests are clear, even if they have to be long. "WhenQuantityInputIsCorrect()" is a good name, 
+while "QuantityTest" doesn't have enough information.
+
+- In your test, you'll have to mock the tested service and call it's methods. Think of all possibilities of correct and 
+incorrect inputs and test if the application handles them.
