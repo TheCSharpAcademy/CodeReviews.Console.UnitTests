@@ -11,18 +11,10 @@ namespace CodingTracker.Tests
         [DataRow(100, "00:01:40")]
         [DataRow(5, "00:00:05")]
         [DataRow(1, "00:00:01")]
-        public void ConvertFromSeconds_InputIsCorrect_ReturnsResult(int seconds, string expectedResult)
-        {
-            string convertedTime = TimeController.ConvertFromSeconds(seconds);
-
-            Assert.AreEqual(expectedResult, convertedTime);
-        }
-
-        [TestMethod]
         [DataRow(-123, "error")]
         [DataRow(-1111111, "error")]
         [DataRow(-1, "error")]
-        public void ConvertFromSeconds_InputIsIncorrect_ReturnsError(int seconds, string expectedResult)
+        public void ConvertFromSeconds_InputIsCorrect_ReturnsResult(int seconds, string expectedResult)
         {
             string convertedTime = TimeController.ConvertFromSeconds(seconds);
 
