@@ -57,33 +57,6 @@ public class DatabaseManagerTest
 
 
     [TestMethod]
-    public void Test_GetNumberOfEntries_NoExtraDummyData()
-    {
-        // We do the exact same code
-        //  - but this time, there should be any increase in number of info
-        //  - this is the another time the consturcotr is being ran
-        //      - since dummy data is false, it should not add any extra info
-        const int expectedEntries = 5;
-        int numberOfEntries = this._dbManager.GetNumberOfEntries();
-
-        List<CodingSession> expectedCodingHabits = new List<CodingSession>
-        {
-            new ( id: 1, startDate:  "2020-01-16", endDate: "2020-01-17", duration: 24, units: "hours"),
-            new ( id: 2, startDate:  "2020-01-18", endDate: "2020-01-20", duration: 48, units: "hours"),
-            new ( id: 3, startDate:  "2020-01-21", endDate: "2020-01-24", duration: 72, units: "hours"),
-            new ( id: 4, startDate:  "2020-01-25", endDate: "2020-01-29", duration: 96, units: "hours"),
-            new ( id: 5, startDate:  "2021-01-13", endDate: "2021-01-18", duration: 120, units: "hours")
-        };
-        List<CodingSession> receivedCodingHabits = this._dbManager.GetAllData();
-
-
-        Assert.AreEqual(expectedEntries, numberOfEntries);
-        for (int i = 0; i < expectedCodingHabits.Count; ++i)
-            Assert.AreEqual(expectedCodingHabits[i], receivedCodingHabits[i]);
-    }
-
-
-    [TestMethod]
     public void Test_GetAllEntries()
     {
         List<CodingSession> expectedCodingHabits = new List<CodingSession>
@@ -128,7 +101,6 @@ public class DatabaseManagerTest
     public void Test_Get_WithValidID()
     {
         CodingSession expected = new(id: 1, startDate: "2020-01-16", endDate: "2020-01-17", duration: 24, units: "hours");
-        List<CodingSession> t = this._dbManager.GetAllData();
         CodingSession received = this._dbManager.Get(1);
 
         Assert.AreEqual(expected, received);
@@ -413,8 +385,8 @@ public class DatabaseManagerTest
     [AssemblyCleanup]
     public static void AssemblyCleanup()
     {
-        /*if(File.Exists("appsettings.json")) 
-            File.Delete("appsettings.json");*/
+        if(File.Exists("appsettings.json")) 
+            File.Delete("appsettings.json");
 
         _sharedConnection?.Close();
         _sharedConnection?.Dispose();
