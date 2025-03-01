@@ -3,7 +3,6 @@ using Spectre.Console.Testing;
 using Spectre.Console;
 using Spectre.Console.Rendering;
 using CodingTrackerLibrary.Models;
-using System.Diagnostics;
 using System.Reflection.PortableExecutable;
 
 namespace CodingTrackerTests;
