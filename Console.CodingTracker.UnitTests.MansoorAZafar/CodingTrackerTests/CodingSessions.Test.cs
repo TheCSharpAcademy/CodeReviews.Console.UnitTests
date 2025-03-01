@@ -20,11 +20,11 @@ public class CodingSessionsTest
         CodingSession session = new();
         
         
-        Assert.IsFalse(isPropertyInitialized(session, "Id"));
-        Assert.IsFalse(isPropertyInitialized(session, "StartDate"));
-        Assert.IsFalse(isPropertyInitialized(session, "EndDate"));
-        Assert.IsFalse(isPropertyInitialized(session, "Duration"));
-        Assert.IsFalse(isPropertyInitialized(session, "Units"));
+        Assert.IsFalse(IsPropertyInitialized(session, "Id"));
+        Assert.IsFalse(IsPropertyInitialized(session, "StartDate"));
+        Assert.IsFalse(IsPropertyInitialized(session, "EndDate"));
+        Assert.IsFalse(IsPropertyInitialized(session, "Duration"));
+        Assert.IsFalse(IsPropertyInitialized(session, "Units"));
     }
 
 
@@ -35,11 +35,11 @@ public class CodingSessionsTest
         CodingSession session = new(id);
 
 
-        Assert.IsTrue(isPropertyInitialized(session, "Id"));
-        Assert.IsFalse(isPropertyInitialized(session, "StartDate"));
-        Assert.IsFalse(isPropertyInitialized(session, "EndDate"));
-        Assert.IsFalse(isPropertyInitialized(session, "Duration"));
-        Assert.IsFalse(isPropertyInitialized(session, "Units"));
+        Assert.IsTrue(IsPropertyInitialized(session, "Id"));
+        Assert.IsFalse(IsPropertyInitialized(session, "StartDate"));
+        Assert.IsFalse(IsPropertyInitialized(session, "EndDate"));
+        Assert.IsFalse(IsPropertyInitialized(session, "Duration"));
+        Assert.IsFalse(IsPropertyInitialized(session, "Units"));
 
         Assert.AreEqual(id, session.Id);
     }
@@ -51,11 +51,11 @@ public class CodingSessionsTest
         CodingSession session = new(startDate);
 
 
-        Assert.IsFalse(isPropertyInitialized(session, "Id"));
-        Assert.IsTrue(isPropertyInitialized(session, "StartDate"));
-        Assert.IsFalse(isPropertyInitialized(session, "EndDate"));
-        Assert.IsFalse(isPropertyInitialized(session, "Duration"));
-        Assert.IsFalse(isPropertyInitialized(session, "Units"));
+        Assert.IsFalse(IsPropertyInitialized(session, "Id"));
+        Assert.IsTrue(IsPropertyInitialized(session, "StartDate"));
+        Assert.IsFalse(IsPropertyInitialized(session, "EndDate"));
+        Assert.IsFalse(IsPropertyInitialized(session, "Duration"));
+        Assert.IsFalse(IsPropertyInitialized(session, "Units"));
 
         Assert.AreEqual(startDate, session.StartDate);
     }
@@ -69,11 +69,11 @@ public class CodingSessionsTest
         CodingSession session = new(startDate, endDate, duration);
 
 
-        Assert.IsFalse(isPropertyInitialized(session, "Id"));
-        Assert.IsTrue(isPropertyInitialized(session, "StartDate"));
-        Assert.IsTrue(isPropertyInitialized(session, "EndDate"));
-        Assert.IsTrue(isPropertyInitialized(session, "Duration"));
-        Assert.IsFalse(isPropertyInitialized(session, "Units"));
+        Assert.IsFalse(IsPropertyInitialized(session, "Id"));
+        Assert.IsTrue(IsPropertyInitialized(session, "StartDate"));
+        Assert.IsTrue(IsPropertyInitialized(session, "EndDate"));
+        Assert.IsTrue(IsPropertyInitialized(session, "Duration"));
+        Assert.IsFalse(IsPropertyInitialized(session, "Units"));
 
         Assert.AreEqual(startDate, session.StartDate);
         Assert.AreEqual(endDate, session.EndDate);
@@ -91,11 +91,11 @@ public class CodingSessionsTest
         CodingSession session = new(id, startDate, endDate, duration);
 
 
-        Assert.IsTrue(isPropertyInitialized(session, "Id"));
-        Assert.IsTrue(isPropertyInitialized(session, "StartDate"));
-        Assert.IsTrue(isPropertyInitialized(session, "EndDate"));
-        Assert.IsTrue(isPropertyInitialized(session, "Duration"));
-        Assert.IsFalse(isPropertyInitialized(session, "Units"));
+        Assert.IsTrue(IsPropertyInitialized(session, "Id"));
+        Assert.IsTrue(IsPropertyInitialized(session, "StartDate"));
+        Assert.IsTrue(IsPropertyInitialized(session, "EndDate"));
+        Assert.IsTrue(IsPropertyInitialized(session, "Duration"));
+        Assert.IsFalse(IsPropertyInitialized(session, "Units"));
 
         Assert.AreEqual(id, session.Id);
         Assert.AreEqual(startDate, session.StartDate);
@@ -115,11 +115,11 @@ public class CodingSessionsTest
         CodingSession session = new(id, startDate, endDate, duration, units);
 
 
-        Assert.IsTrue(isPropertyInitialized(session, "Id"));
-        Assert.IsTrue(isPropertyInitialized(session, "StartDate"));
-        Assert.IsTrue(isPropertyInitialized(session, "EndDate"));
-        Assert.IsTrue(isPropertyInitialized(session, "Duration"));
-        Assert.IsTrue(isPropertyInitialized(session, "Units"));
+        Assert.IsTrue(IsPropertyInitialized(session, "Id"));
+        Assert.IsTrue(IsPropertyInitialized(session, "StartDate"));
+        Assert.IsTrue(IsPropertyInitialized(session, "EndDate"));
+        Assert.IsTrue(IsPropertyInitialized(session, "Duration"));
+        Assert.IsTrue(IsPropertyInitialized(session, "Units"));
 
         Assert.AreEqual(id, session.Id);
         Assert.AreEqual(startDate, session.StartDate);
@@ -179,7 +179,7 @@ public class CodingSessionsTest
     }
 
 
-    private bool isPropertyInitialized(object obj, string propertyName)
+    private bool IsPropertyInitialized(object obj, string propertyName)
     => obj.GetType()
         .GetProperty
         (
