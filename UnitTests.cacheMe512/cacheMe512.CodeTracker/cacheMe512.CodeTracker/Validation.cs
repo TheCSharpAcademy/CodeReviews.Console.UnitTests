@@ -6,6 +6,13 @@ namespace cacheMe512.CodeTracker
 {
     public class Validation
     {
+        private readonly IConsoleWrapper _console;
+
+        public Validation(IConsoleWrapper console)
+        {
+            _console = console;
+        }
+
         public static DateTime GetDateTimeInput(string promptMessage)
         {
             DateTime dateTime;
@@ -32,13 +39,13 @@ namespace cacheMe512.CodeTracker
             return true;
         }
 
-        public static int GetNumberInput(string message)
+        public int GetNumberInput(string message)
         {
             int number;
             do
             {
-                var input = AnsiConsole.Ask<string>(message);
-                if (!int.TryParse(input, out number) || number < 0)
+                number = _console.AskInt(message);
+                if (number < 0)
                 {
                     AnsiConsole.MarkupLine("[red]Invalid number. Please enter a positive number.[/]");
                 }
@@ -46,11 +53,7 @@ namespace cacheMe512.CodeTracker
 
             return number;
         }
-
-        public static string GetStringInput(string message)
-        {
-            return AnsiConsole.Ask<string>(message);
-        }
+        public string GetStringInput(string message) => _console.AskString(message);
 
         public static bool ConfirmDeletion(CodingSession session)
         {

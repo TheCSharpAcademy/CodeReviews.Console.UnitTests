@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using cacheMe512.CodeTracker;
+using Moq;
 
 namespace CodeTracking.Tests;
 
@@ -36,5 +37,21 @@ public class ValidationTests
         bool result = Validation.DateTimeInSequence(dateTime, dateTime);
 
         Assert.IsTrue(result);
+    }
+
+    [TestMethod]
+    public void GetNumberInput_ValidNumber()
+    {
+ 
+        var mockConsole = new Mock<IConsoleWrapper>();
+        mockConsole.Setup(c => c.AskInt(It.IsAny<string>())).Returns(10);
+
+        var validation = new Validation(mockConsole.Object);
+
+
+        int result = validation.GetNumberInput("Enter a number:");
+
+
+        Assert.AreEqual(10, result);
     }
 }
