@@ -7,6 +7,16 @@ namespace CodeTracking.Tests;
 [TestClass]
 public class ValidationTests
 {
+    private Mock<IConsoleWrapper> mockConsole;
+    private Validation validation;
+
+    [TestInitialize]
+    public void Setup()
+    {
+        mockConsole = new Mock<IConsoleWrapper>();
+        validation = new Validation(mockConsole.Object);
+    }
+
     [TestMethod]
     public void DateTimeInSequence_ValidDates()
     {
@@ -42,16 +52,31 @@ public class ValidationTests
     [TestMethod]
     public void GetNumberInput_ValidNumber()
     {
- 
-        var mockConsole = new Mock<IConsoleWrapper>();
         mockConsole.Setup(c => c.AskInt(It.IsAny<string>())).Returns(10);
-
-        var validation = new Validation(mockConsole.Object);
-
 
         int result = validation.GetNumberInput("Enter a number:");
 
+        Assert.AreEqual(10, result);
+    }
+
+    [TestMethod]
+    public void GetNumberInput_NegativeThenValid()
+    {
+        var sequence = new Queue<int>(new[] { -5, -2, 10 });
+        mockConsole.Setup(c => c.AskInt(It.IsAny<string>())).Returns(() => sequence.Dequeue());
+
+        int result = validation.GetNumberInput("Enter a number:");
 
         Assert.AreEqual(10, result);
+    }
+
+    [TestMethod]
+    public void GetStringInput_ValidString()
+    {
+        mockConsole.Setup(c => c.AskString(It.IsAny<string>())).Returns("Test input");
+
+        string result = validation.GetStringInput("Enter a string:");
+
+        Assert.AreEqual("Test input", result);
     }
 }
