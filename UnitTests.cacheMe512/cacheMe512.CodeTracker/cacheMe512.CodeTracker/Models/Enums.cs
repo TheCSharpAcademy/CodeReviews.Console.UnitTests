@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-
+﻿
 namespace cacheMe512.CodeTracker.Models;
 
 internal class Enums
