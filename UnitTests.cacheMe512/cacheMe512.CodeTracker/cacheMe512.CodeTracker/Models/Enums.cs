@@ -1,16 +1,17 @@
-﻿namespace cacheMe512.CodeTracker.Models
+﻿using System.ComponentModel;
+
+namespace cacheMe512.CodeTracker.Models;
+
+internal class Enums
 {
-    internal class Enums
+    internal enum MenuAction
     {
-        internal enum MenuAction
-        {
-            ViewSessions,
-            AddSession,
-            StartNewSession,
-            EndSession,
-            UpdateSession,
-            DeleteSession,
-            Exit
-        }
+        ViewSessions,
+        AddSession,
+        StartNewSession,
+        EndSession,
+        UpdateSession,
+        DeleteSession,
+        Exit
     }
 }

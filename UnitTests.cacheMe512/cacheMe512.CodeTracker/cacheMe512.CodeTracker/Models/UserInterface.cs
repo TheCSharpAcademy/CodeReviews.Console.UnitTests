@@ -20,8 +20,9 @@ internal class UserInterface
             Console.Clear();
             var actionChoice = AnsiConsole.Prompt(
                 new SelectionPrompt<MenuAction>()
-                .Title("MAIN MENU")
-                .AddChoices(Enum.GetValues<MenuAction>()));
+                    .Title("MAIN MENU")
+                    .UseConverter(action => FormatEnumName(action))
+                    .AddChoices(Enum.GetValues<MenuAction>()));
 
             switch (actionChoice)
             {
@@ -46,7 +47,6 @@ internal class UserInterface
                 case MenuAction.Exit:
                     return;
             }
-
         }
     }
 
@@ -218,5 +218,10 @@ internal class UserInterface
 
         AnsiConsole.MarkupLine("Press Any Key to Continue.");
         Console.ReadKey();
+    }
+
+    private static string FormatEnumName(Enum value)
+    {
+        return System.Text.RegularExpressions.Regex.Replace(value.ToString(), "([a-z])([A-Z])", "$1 $2");
     }
 }
