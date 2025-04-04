@@ -6,6 +6,7 @@ public class Validation
 {
     public bool Validate2Dates(string startTime,string endTime)
     {
+        //ok was deleted
         var codingSession = new CodingSession { StartTime = startTime, EndTime = endTime };
         codingSession.CalculateDuration();
         return codingSession.Duration.TotalSeconds > 0;
