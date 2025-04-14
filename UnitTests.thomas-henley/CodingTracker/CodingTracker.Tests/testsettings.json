@@ -1,0 +1,15 @@
+{
+    "ConnectionStrings": {
+        "SQLite": "Data Source=CodingTracker.db;"
+    },
+    "TableName": "TestTable",
+
+    /* Other datetime formats are not currently supported. */
+    "DateTimeFormat": "yyyy-MM-dd HH:mm",
+
+    /* Replace existing records in the database with randomly generated data. */
+    "UseExampleData": false,
+
+    /* Destroy the table upon exiting the program. Used for testing and demonstration. */
+    "TeardownData": false
+}
