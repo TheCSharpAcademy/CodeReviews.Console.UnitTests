@@ -1,8 +1,7 @@
 {
   "profiles": {
     "CodingTracker": {
-      "commandName": "Project",
-      "workingDirectory": "C:\\Users\\mstei\\source\\repos\\CodingTracker"
+      "commandName": "Project"
     }
   }
 }

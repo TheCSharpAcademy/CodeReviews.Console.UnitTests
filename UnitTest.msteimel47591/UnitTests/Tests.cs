@@ -1,299 +1,138 @@
-﻿using CodingTracker.Models;
-using Moq;
-using System.Reflection;
-
-
-namespace CodingTracker.Tests;
+﻿namespace CodingTracker.Tests;
 
 [TestClass]
-[DoNotParallelize]
 public sealed class InputValidationTests
 {
-    private TextReader _originalConsoleIn;
 
-
-    [TestInitialize]
-    public void TestInitialize()
-    {
-        _originalConsoleIn = Console.In;
-        Environment.SetEnvironmentVariable("TEST_ENVIRONMENT", "true");
-    }
-
-    [TestCleanup]
-    public void TestCleanup()
-    {
-        Console.SetIn(_originalConsoleIn);
-        Environment.SetEnvironmentVariable("TEST_ENVIRONMENT", null);
+    [TestMethod]
+    [DataRow("01/01/21 09:00 AM")]
+    [DataRow("09/15/10 12:55 AM")]
+    [DataRow("12/12/25 10:00 PM")]
+    public void ValidateDateAndTimeInput_CorrectInput(string input)
+    { 
+        Assert.IsTrue(Validation.ValidateDateTimeInput(input));
     }
 
     [TestMethod]
-    public void GetDateTimeInput_CorrectInput()
+    [DataRow("1/01/21 09:00 AM")]
+    [DataRow("12/12/2025 10:00 PM")]
+    [DataRow("11/05/10 9:15 AM")]
+    [DataRow("10/5/19 12:30 PM")]
+    [DataRow("12/12/2025 10:00 PM")]
+    [DataRow("15/12/25 10:00 PM")]
+    [DataRow("12/32/25 10:00 PM")]
+    [DataRow("12/12/25 13:00 PM")]
+    [DataRow("")]
+    [DataRow(" ")]
+    [DataRow(null)]
+    [DataRow("abc")]
+    public void ValidateDateAndTimeInput_IncorrectInput(string input)
     {
-        var input = "01/01/21 09:00 AM";
-        var expectedOutput = "01/01/21 09:00 AM";
-
-        using (var stringReader = new StringReader(input))
-        {
-            Console.SetIn(stringReader);
-
-            var result = Helper.GetDateTimeInput("start time");
-
-            Assert.AreEqual(expectedOutput, result);
-        }
+        Assert.IsFalse(Validation.ValidateDateTimeInput(input));
     }
 
     [TestMethod]
-    [ExpectedException(typeof(MenuExitException))]
-    public void GetDateTimeInput_ExitInput()
+    [DataRow("C#")]
+    [DataRow("ASP.NET")]
+    [DataRow("JavaScript")]
+    public void ValidateFocusInput_CorrectInput(string input)
     {
-        var input = "0";
-
-        using (var stringReader = new StringReader(input))
-        {
-            Console.SetIn(stringReader);
-
-            Helper.GetDateTimeInput("start time");
-        }
+        Assert.IsTrue(Validation.ValidateFocusInput(input));
     }
 
     [TestMethod]
-    public void GetDateTimeInput_IncorrectThenCorrectInput()
+    [DataRow(null)]
+    [DataRow("")]
+    [DataRow(" ")]
+    public void ValidateFocusInput_IncorrectInput(string input)
     {
-        var inputs = "01-01-21 09:00 AM\n01/01/21 09:00 AM";
-        var expectedOutput = "01/01/21 09:00 AM";
-
-        using (var stringReader = new StringReader(inputs))
-        {
-            Console.SetIn(stringReader);
-
-            var result = Helper.GetDateTimeInput("start time");
-
-            Assert.AreEqual(expectedOutput, result);
-        }
+        Assert.IsFalse(Validation.ValidateFocusInput(input));
     }
 
     [TestMethod]
-    public void GetFocusInput_CorrectInput()
+    [DataRow("1")]
+    [DataRow("20")]
+    [DataRow("100")]
+    public void ValidateSessionIdInput_CorrectInput(string input)
     {
-        var inputs = "C#";
-        var expectedOutput = "C#";
-
-        using (var stringReader = new StringReader(inputs))
-        {
-            Console.SetIn(stringReader);
-
-            var result = Helper.GetFocusInput();
-
-            Assert.AreEqual(expectedOutput, result);
-        }
+        Assert.AreEqual(int.Parse(input), Validation.ValidateSessionIdInput(input));
     }
 
     [TestMethod]
-    [ExpectedException(typeof(MenuExitException))]
-    public void GetFocusInput_ExitInput()
+    [DataRow("0")]
+    [DataRow("-5")]
+    [DataRow("")]
+    [DataRow(" ")]
+    [DataRow(null)]
+    [DataRow("abc")]
+    public void ValidateSessionIdInput_IncorrectInput(string input)
     {
-        var input = "0";
-
-        using (var stringReader = new StringReader(input))
-        {
-            Console.SetIn(stringReader);
-
-            Helper.GetFocusInput();
-        }
+        Assert.AreEqual(-1, Validation.ValidateSessionIdInput(input));
     }
 
     [TestMethod]
-    public void GetFocusInput_IncorrectThenCorrectInput()
+    [DataRow("01/01/21")]
+    [DataRow("09/15/10")]
+    [DataRow("12/12/25")]
+    public void ValidateDateInput_CorrectInput(string input)
     {
-        var inputs = "\nC#";
-        var expectedOutput = "C#";
-
-        using (var stringReader = new StringReader(inputs))
-        {
-            Console.SetIn(stringReader);
-
-            var result = Helper.GetFocusInput();
-
-            Assert.AreEqual(expectedOutput, result);
-        }
+        Assert.IsTrue(Validation.ValidateDateInput(input));
     }
 
     [TestMethod]
-    [ExpectedException(typeof(MenuExitException))]
-    public void GetSessionIDInput_ExitInput()
+    [DataRow("21")]
+    [DataRow("abc")]
+    [DataRow("")]
+    [DataRow(" ")]
+    [DataRow(null)]
+    [DataRow("15/12/25")]
+    [DataRow("12/32/25")]
+    [DataRow("12/12/2025")]
+    public void ValidateDateInput_IncorrectInput(string input)
     {
-        var input = "0";
-
-        using (var stringReader = new StringReader(input))
-        {
-            Console.SetIn(stringReader);
-
-            Helper.GetSessionIdInput();
-        }
+        Assert.IsFalse(Validation.ValidateDateInput(input));
     }
 
     [TestMethod]
-    public void GetSessionIdInput_ValidId_ReturnsId()
+    [DataRow("01/21")]
+    [DataRow("09/10")]
+    [DataRow("12/25")]
+    public void ValidateMonthAndYearInput_CorrectInput(string input)
     {
-        var mockDBAccessWrapper = new Mock<IDBAccessWrapper>();
-        mockDBAccessWrapper.Setup(db => db.GetAllSessions()).Returns(new List<CodingSession>
-            {
-                new CodingSession { Id = 1, StartTime = "01/01/21 09:00 AM", EndTime = "01/01/21 10:00 AM", Focus = "C#" }
-            });
-
-        var helperType = typeof(Helper);
-        var dbAccessWrapperField = helperType.GetField("_dbAccessWrapper", BindingFlags.NonPublic | BindingFlags.Static);
-        dbAccessWrapperField.SetValue(null, mockDBAccessWrapper.Object);
-
-        using (var sw = new StringWriter())
-        {
-            Console.SetOut(sw);
-            using (var sr = new StringReader("1"))
-            {
-                Console.SetIn(sr);
-
-                int result = Helper.GetSessionIdInput();
-
-                Assert.AreEqual(1, result);
-            }
-        }
+        Assert.IsTrue(Validation.ValidateMonthAndYearInput(input));
     }
 
     [TestMethod]
-    public void GetDateInput_CorrectInput()
+    [DataRow("21")]
+    [DataRow("abc")]
+    [DataRow("")]
+    [DataRow(" ")]
+    [DataRow(null)]
+    [DataRow("15/25")]
+    [DataRow("12/2025")]
+    public void ValidateMonthAndYearInput_IncorrectInput(string input)
     {
-        var input = "01/01/21";
-        var expectedOutput = new DateTime(2021, 01, 01);
-
-        using (var stringReader = new StringReader(input))
-        {
-            Console.SetIn(stringReader);
-
-            var result = Helper.GetDateInput();
-
-            Assert.AreEqual(expectedOutput, result);
-        }
+        Assert.IsFalse(Validation.ValidateMonthAndYearInput(input));
     }
 
     [TestMethod]
-    [ExpectedException(typeof(MenuExitException))]
-    public void GetDateInput_ExitInput()
+    [DataRow("21")]
+    [DataRow("10")]
+    [DataRow("25")]
+    public void ValidateYearInput_CorrectInput(string input)
     {
-        var input = "0";
-
-        using (var stringReader = new StringReader(input))
-        {
-            Console.SetIn(stringReader);
-
-            Helper.GetDateInput();
-        }
+        Assert.IsTrue(Validation.ValidateYearInput(input));
     }
 
     [TestMethod]
-    public void GetDateInput_IncorrectThenCorrectInput()
+    [DataRow("abc")]
+    [DataRow("")]
+    [DataRow(" ")]
+    [DataRow(null)]
+    [DataRow("15/25")]
+    public void ValidateYearInput_IncorrectInput(string input)
     {
-        var inputs = "01-01-21\n01/01/21";
-        var expectedOutput = new DateTime(2021, 01, 01);
-
-        using (var stringReader = new StringReader(inputs))
-        {
-            Console.SetIn(stringReader);
-
-            var result = Helper.GetDateInput();
-
-            Assert.AreEqual(expectedOutput, result);
-        }
-    }
-
-    [TestMethod]
-    public void GetMonthAndYearInput_CorrectInput()
-    {
-        var input = "01/21";
-        var expectedOutput = new DateTime(2021, 01, 01);
-
-        using (var stringReader = new StringReader(input))
-        {
-            Console.SetIn(stringReader);
-
-            var result = Helper.GetMonthAndYearInput();
-
-            Assert.AreEqual(expectedOutput, result);
-        }
-    }
-
-    [TestMethod]
-    [ExpectedException(typeof(MenuExitException))]
-    public void GetMonthAndYearInput_ExitInput()
-    {
-        var input = "0";
-
-        using (var stringReader = new StringReader(input))
-        {
-            Console.SetIn(stringReader);
-
-            Helper.GetMonthAndYearInput();
-        }
-    }
-
-    [TestMethod]
-    public void GetMonthAndYearInput_IncorrectThenCorrectInput()
-    {
-        var inputs = "01-21\n01/21";
-        var expectedOutput = new DateTime(2021, 01, 01);
-
-        using (var stringReader = new StringReader(inputs))
-        {
-            Console.SetIn(stringReader);
-
-            var result = Helper.GetMonthAndYearInput();
-
-            Assert.AreEqual(expectedOutput, result);
-        }
-    }
-
-    [TestMethod]
-    public void GetYearInput_CorrectInput()
-    {
-        var input = "21";
-        var expectedOutput = new DateTime(2021, 01, 01);
-
-        using (var stringReader = new StringReader(input))
-        {
-            Console.SetIn(stringReader);
-
-            var result = Helper.GetYearInput();
-
-            Assert.AreEqual(expectedOutput, result);
-        }
-    }
-
-    [TestMethod]
-    [ExpectedException(typeof(MenuExitException))]
-    public void GetYearInput_ExitInput()
-    {
-        var input = "0";
-
-        using (var stringReader = new StringReader(input))
-        {
-            Console.SetIn(stringReader);
-
-            Helper.GetYearInput();
-        }
-    }
-
-    [TestMethod]
-    public void GetYearInput_IncorrectThenCorrectInput()
-    {
-        var inputs = "2021\n21";
-        var expectedOutput = new DateTime(2021, 01, 01);
-
-        using (var stringReader = new StringReader(inputs))
-        {
-            Console.SetIn(stringReader);
-
-            var result = Helper.GetYearInput();
-
-            Assert.AreEqual(expectedOutput, result);
-        }
+        Assert.IsFalse(Validation.ValidateYearInput(input));
     }
 }
+
