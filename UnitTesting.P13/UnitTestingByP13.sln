@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingTracker", "CodingTracker\CodingTracker.csproj", "{1F666B48-42BA-6755-7F77-943F9C1863F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodingTracker.UnitTests", "CodingTracker.UnitTests\CodingTracker.UnitTests.csproj", "{65F7823C-3A67-6836-7FDF-C4C7316EAF79}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1F666B48-42BA-6755-7F77-943F9C1863F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F666B48-42BA-6755-7F77-943F9C1863F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F666B48-42BA-6755-7F77-943F9C1863F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F666B48-42BA-6755-7F77-943F9C1863F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65F7823C-3A67-6836-7FDF-C4C7316EAF79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65F7823C-3A67-6836-7FDF-C4C7316EAF79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65F7823C-3A67-6836-7FDF-C4C7316EAF79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65F7823C-3A67-6836-7FDF-C4C7316EAF79}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {52EEBE9C-96F3-4C6A-83DC-876469D93991}
+	EndGlobalSection
+EndGlobal
