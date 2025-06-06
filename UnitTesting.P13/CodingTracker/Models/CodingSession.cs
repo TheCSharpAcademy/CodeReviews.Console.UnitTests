@@ -8,7 +8,7 @@
         internal string? StartTime { get; set; }
         internal string? EndTime { get; set; }
         internal string? Duration { get; set; }
-        internal int rowid { get; set; }
+        internal int Rowid { get; set; }
         internal string? DurationCount { get; set; }
         internal string? TotalDuration { get; set; }
         internal string? Average { get; set; }

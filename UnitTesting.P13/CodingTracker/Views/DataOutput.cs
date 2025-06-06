@@ -25,7 +25,7 @@ namespace CodingTracker.Views
                     foreach (CodingSession data in projectData)
                     {
                         totalDuration.Add(TimeSpan.ParseExact(data.Duration, "c", CultureInfo.InvariantCulture, TimeSpanStyles.None));
-                        table.AddRow(data.rowid.ToString(), data.StartDate, data.StartTime, data.EndDate, data.EndTime, data.Duration);
+                        table.AddRow(data.Rowid.ToString(), data.StartDate, data.StartTime, data.EndDate, data.EndTime, data.Duration);
                     }
                     AnsiConsole.Write(table);
                     table = new();

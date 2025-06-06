@@ -108,7 +108,7 @@ namespace CodingTracker.Controllers
                             {
                                 currentData.StartDate = secondDate.ToString("yyyy.MM.dd");
                                 currentData.EndDate = currentDate.ToString("yyyy.MM.dd");
-                                currentData.rowid = secondDate.Day / 7 + 1;
+                                currentData.Rowid = secondDate.Day / 7 + 1;
                                 sessionCount += int.Parse(currentData.DurationCount);
                                 finalDuration = finalDuration.Add(TimeSpan.ParseExact(currentData.TotalDuration, "c", CultureInfo.InvariantCulture, TimeSpanStyles.None));
                                 reports.Add(currentData);

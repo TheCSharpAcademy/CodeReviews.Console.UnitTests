@@ -15,8 +15,6 @@ namespace CodingTracker.Controllers
                 readResult = AnsiConsole.Prompt(
                     new TextPrompt<string>(message));
                 validInput = Validators.ValidateString(readResult);
-                //    .Validate(result => result.IndexOfAny(new char[] { '/', '-', '\\', '\'', '"', '(', '[', '{', '?', '!', '&', '>', '<', '=', ',', '.' }) == -1)
-                //    .ValidationErrorMessage("[red bold]Invalid input[/] format, please rewrite project name using in a [blue]valid[/] format"));
             }
             return readResult;
         }
@@ -31,28 +29,20 @@ namespace CodingTracker.Controllers
                 {
                     while (!validInput)
                     {
-                        // DateTime dateTime;
                         readResult = AnsiConsole.Prompt(
                             new TextPrompt<string>(message));
                         validInput = Validators.ValidateDate(readResult);
-                        //.Validate(result => result.IndexOfAny(new char[] { '/', '\\', '\'', '"', '(', '[', '{', '?', '!', '&', '>', '<', '=', ',', '_' }) == -1)
-                        //.Validate(result => DateTime.TryParseExact(result, "yyyy.MM.dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTime))
-                        //.ValidationErrorMessage("[red bold]Invalid input[/] format, please rewrite project name using in a [blue]valid[/] format: [green]yyyy-MM-dd[/]"));
                     }
                     return readResult;
                 }
                 else
                 {
-                    // DateTime dateTime;
                     while (!validInput)
                     {
                         readResult = AnsiConsole.Prompt(
                             new TextPrompt<string>(message));
                         validInput = Validators.ValidateTime(readResult);
                     }
-                        //.Validate(result => result.IndexOfAny(new char[] { '/', '\\', '\'', '"', '(', '[', '{', '?', '!', '&', '>', '<', '=', ',', '_' }) == -1)
-                        //.Validate(result => DateTime.TryParseExact(result, "HH:mm", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateTime))
-                        //.ValidationErrorMessage("[red bold]Invalid input[/] format, please rewrite project name using in a [blue]valid[/] format: [green]HH:mm[/]"));
                     return readResult;
                 }
             }
@@ -70,9 +60,6 @@ namespace CodingTracker.Controllers
                     new TextPrompt<string>("Please enter a time estimation: (d.HH:MM.ss)"));
                 validInput = Validators.ValidateDurationEstimation(readResult);
             }
-            //        .Validate(result => result.IndexOfAny(new char[] { '/', '\\', '\'', '"', '(', '[', '{', '?', '!', '&', '>', '<', '=', ',' }) == -1)
-            //        .Validate(result => TimeSpan.TryParseExact(result, "c", CultureInfo.InvariantCulture, TimeSpanStyles.None, out durationEstimation))
-            //        .ValidationErrorMessage("[red bold]Invalid input[/] format, please rewrite project name using in a [blue]valid[/] format: [green]d.HH:MM:ss[/]"));
             return durationEstimation.ToString();
         }
 
@@ -158,7 +145,7 @@ namespace CodingTracker.Controllers
                 List<string> selectedDataIds = new();
                 foreach (CodingSession data in selected)
                 {
-                    selectedDataIds.Add(data.rowid.ToString());
+                    selectedDataIds.Add(data.Rowid.ToString());
                 }
                 if (!selectedDataIds.Contains("0")) return selectedDataIds;
             }
