@@ -40,14 +40,14 @@ namespace CodingTracker.Controllers
 
             MenuModel.SqlCommandText = $"INSERT INTO {MenuModel.CurrentCodingSession} (StartDate,EndDate,StartTime,EndTime,Duration) VALUES($startDate,$endDate,$startTime,$endTime,$duration)";
             DataTools.ExecuteQuery(MenuModel.SqlCommandText, startDate: MenuModel.StartDate, endDate: MenuModel.EndDate, startTime: MenuModel.StartTime, endTime: MenuModel.EndTime, duration: MenuModel.Duration);
-            
+
             config.Save(ConfigurationSaveMode.Full);
         }
 
         internal void BeginNewCodingSession()
         {
             MenuModel.IsCodingSessionRunning = UserInputs.ValidateInput("Begin a new coding session?");
-            
+
             if (MenuModel.IsCodingSessionRunning)
             {
                 MenuModel.Project = UserInputs.SelectExistingProject(newProject: true);
@@ -141,7 +141,7 @@ namespace CodingTracker.Controllers
                                 while (!validInput)
                                 {
                                     modifiedData = UserInputs.GetDateTimeInput($"Pease enter a starting date to replace (format [green]yyyy.MM.dd[/]):");
-                                    validInput = Validators.ValidateStartAndEnd(modifiedData,$"{MenuModel.CurrentData.EndDate} {MenuModel.EndTime}");
+                                    validInput = Validators.ValidateStartAndEnd(modifiedData, $"{MenuModel.CurrentData.EndDate} {MenuModel.EndTime}");
                                     if (!validInput) AnsiConsole.MarkupLine($"New date must be before {MenuModel.EndDate} {MenuModel.EndTime}");
                                 }
                                 MenuModel.SqlCommandText = $"UPDATE {MenuModel.Project} SET StartDate = $startDate , Duration = $duration WHERE rowid = $id ";
@@ -185,7 +185,7 @@ namespace CodingTracker.Controllers
 
             if (projectType == "Normal Project") { MenuModel.Project = UserInputs.SelectExistingProject(); }
             else MenuModel.Project = UserInputs.SelectExistingProject(Goal: true);
-            
+
             if (MenuModel.Project != null)
             {
                 bool validation = UserInputs.ValidateInput($"Are you sure you want to delete [red]{MenuModel.Project}[/]?", defVal: false);

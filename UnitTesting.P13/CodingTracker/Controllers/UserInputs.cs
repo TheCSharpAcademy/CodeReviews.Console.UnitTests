@@ -1,6 +1,5 @@
 ﻿using CodingTracker.Models;
 using Spectre.Console;
-using System.Globalization;
 
 namespace CodingTracker.Controllers
 {

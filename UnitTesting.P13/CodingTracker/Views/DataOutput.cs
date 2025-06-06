@@ -37,8 +37,6 @@ namespace CodingTracker.Views
             }
             else
             {
-                DateTime currentDate = DateTime.Today.Date;
-                string currentWeekDay = DateTime.Today.Date.DayOfWeek.ToString();
 
                 projectData = DataTools.GetProjectData(Project, ascDesc, option);
                 if (projectData != null)

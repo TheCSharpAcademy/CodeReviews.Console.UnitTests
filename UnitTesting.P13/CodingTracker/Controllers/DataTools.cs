@@ -1,10 +1,10 @@
-﻿using Microsoft.Data.Sqlite;
+﻿using CodingTracker.Models;
+using Dapper;
+using Microsoft.Data.Sqlite;
 using Spectre.Console;
 using System.Configuration;
-using Dapper;
-using System.Globalization;
 using System.Data;
-using CodingTracker.Models;
+using System.Globalization;
 
 namespace CodingTracker.Controllers
 {
