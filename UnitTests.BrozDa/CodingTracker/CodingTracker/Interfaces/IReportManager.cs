@@ -3,7 +3,7 @@
     /// <summary>
     /// Defines report function
     /// </summary>
-    internal interface IReportManager
+    public interface IReportManager
     {
         /// <summary>
         /// Generates report for the user

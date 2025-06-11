@@ -1,14 +1,15 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System;
+using CodingTracker;
 
-namespace CodingTracker.UnitTests
+
+
+namespace CodingTracker.UnitTests;
+
+
+public class UnitTest1
 {
-    [TestClass]
-    public class UnitTest1
+    [Fact]
+    public void Test1()
     {
-        [TestMethod]
-        public void TestMethod1()
-        {
-        }
+        var lol = new ReportManager)
     }
 }

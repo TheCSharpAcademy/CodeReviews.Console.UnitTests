@@ -3,7 +3,7 @@
     /// <summary>
     /// Represents database record for CodingSession
     /// </summary>
-    internal class CodingSession
+    public class CodingSession
     {
         public int Id { get; set; }
 

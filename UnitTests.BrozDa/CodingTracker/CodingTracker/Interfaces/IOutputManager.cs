@@ -3,7 +3,7 @@
     /// <summary>
     /// Defines presenting output to the user
     /// </summary>
-    internal interface IOutputManager
+    public interface IOutputManager
     {
         /// <summary>
         /// Readonly property for DateTime format

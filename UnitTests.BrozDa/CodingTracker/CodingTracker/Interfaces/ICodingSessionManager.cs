@@ -3,7 +3,7 @@
     /// <summary>
     /// Defines handling of CRUD operations for application and preparing of the repository
     /// </summary>
-    internal interface ICodingSessionManager
+    public interface ICodingSessionManager
     {
         /// <summary>
         /// Prepares the repository

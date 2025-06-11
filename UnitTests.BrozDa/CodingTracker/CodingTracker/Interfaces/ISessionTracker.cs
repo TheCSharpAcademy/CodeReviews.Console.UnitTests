@@ -3,7 +3,7 @@
     /// <summary>
     /// Defines tracking functionality
     /// </summary>
-    internal interface ISessionTracker
+    public interface ISessionTracker
     {
         /// <summary>
         /// Tracks coding session

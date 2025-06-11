@@ -6,7 +6,7 @@ namespace CodingTracker
     /// Manages reporting function
     /// Implements <see cref="IReportManager"/>
     /// </summary>
-    internal class ReportManager : IReportManager
+    public class ReportManager : IReportManager
     {
         private IInputManager _inputManager;
         private IOutputManager _outputManager;

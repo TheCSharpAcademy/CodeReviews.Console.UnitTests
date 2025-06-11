@@ -2,7 +2,7 @@
 
 namespace CodingTracker
 {
-    internal class CodingSessionManager : ICodingSessionManager
+    public class CodingSessionManager : ICodingSessionManager
     {
         private IInputManager _inputManager;
         private IOutputManager _outputManager;

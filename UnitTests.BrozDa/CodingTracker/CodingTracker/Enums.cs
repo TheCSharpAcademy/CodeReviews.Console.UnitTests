@@ -1,7 +1,7 @@
 ﻿/// <summary>
 /// Represents user choice in the menu
 /// </summary>
-internal enum UserChoice
+public enum UserChoice
 {
     View = 1,
     Insert,
@@ -15,7 +15,7 @@ internal enum UserChoice
 /// <summary>
 /// Represents time frame requested by the user
 /// </summary>
-internal enum ReportTimeFrame
+public enum ReportTimeFrame
 {
     ThisYear,
     ThisMonth,

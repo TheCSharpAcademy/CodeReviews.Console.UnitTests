@@ -3,7 +3,7 @@
     /// <summary>
     /// Defines handling of CRUD operations against repository
     /// </summary>
-    internal interface ICodingSessionRepository
+    public interface ICodingSessionRepository
     {
         /// <summary>
         /// String variable containing path to the database file

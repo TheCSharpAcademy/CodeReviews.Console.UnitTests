@@ -6,7 +6,7 @@ namespace CodingTracker
     /// Manages output of the data 
     /// Implements <see cref="IOutputManager"/>
     /// </summary>
-    internal class OutputManager : IOutputManager
+    public class OutputManager : IOutputManager
     {
         /// <inheritdoc/>
         public string DateTimeFormat { get; init; }

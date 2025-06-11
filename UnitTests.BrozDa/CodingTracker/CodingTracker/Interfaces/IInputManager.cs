@@ -3,7 +3,7 @@
     /// <summary>
     /// Defines input and input validation operations
     /// </summary>
-    internal interface IInputManager
+    public interface IInputManager
     {
         /// <summary>
         /// Readonly property for DateTime format

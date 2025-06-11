@@ -8,7 +8,7 @@ namespace CodingTracker
     /// Manages reading and validation of user input 
     /// Implements <see cref="IInputManager"/>
     /// </summary>
-    internal class InputManager : IInputManager
+    public class InputManager : IInputManager
     {
         /// <inheritdoc/>
         public string DateTimeFormat {  get; init; }

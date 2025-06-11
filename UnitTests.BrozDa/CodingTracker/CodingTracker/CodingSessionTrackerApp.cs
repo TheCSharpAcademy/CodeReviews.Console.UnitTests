@@ -5,7 +5,7 @@ namespace CodingTracker
     /// <summary>
     /// Represents application used for tracking coding hours of the user
     /// </summary>
-    internal class CodingSessionTrackerApp
+    public class CodingSessionTrackerApp
     {
         private ICodingSessionManager _codingSessionManager;
         private IInputManager _inputManager;

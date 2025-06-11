@@ -7,7 +7,7 @@ namespace CodingTracker
     /// Manages tracking of coding session
     /// Implements <see cref="ISessionTracker"/>
     /// </summary>
-    internal class SessionTracker : ISessionTracker
+    public class SessionTracker : ISessionTracker
     {
         private IInputManager _inputManager;
         private IOutputManager _outputManager;
