@@ -56,37 +56,35 @@ namespace CodingTracker
         {
             DateTime startDate = DateTime.Now;
 
-            AnsiConsole.Prompt(
+            string input = AnsiConsole.Prompt(
                 new TextPrompt<string>($"Enter start date and time in format [green]{DateTimeFormat.ToUpper()}[/]: ")
-                .Validate(input =>
-                            ParseDateTimeInput(input, out startDate))
+                .Validate(input => Validator.IsValidDate(input, DateTimeFormat))
                 .ValidationErrorMessage("[red]Invalid input format[/]")
                 );
 
-            return startDate;
+            return DateTime.ParseExact(input,DateTimeFormat, CultureInfo.InvariantCulture);
         }
         /// <inheritdoc/>
         public DateTime GetEndTime(DateTime startDate)
         {
             DateTime endDate = DateTime.Now;
-            AnsiConsole.Prompt(
+            string input = AnsiConsole.Prompt(
                 new TextPrompt<string>($"Enter end date and time in format [green]{DateTimeFormat.ToUpper()}[/]: ")
-                .Validate((input) =>
-                {
-                    if (!ParseDateTimeInput(input, out endDate))
+                .Validate((input) => 
+                {   
+                    if (!Validator.IsValidDate(input, DateTimeFormat))
                     {
                         return ValidationResult.Error("[red]Invalid input format[/]");
                     }
 
-                    if (startDate >= endDate)
+                    if (!Validator.IsValidEndDate(input, startDate, DateTimeFormat))
                     {
                         return ValidationResult.Error("[red]End is sooner than start[/]");
                     }
-
                     return ValidationResult.Success();
                 }));
 
-            return endDate;
+            return DateTime.ParseExact(input, DateTimeFormat, CultureInfo.InvariantCulture);
         }
         /// <summary>
         /// Parses user input to speficic date and time format
@@ -101,11 +99,11 @@ namespace CodingTracker
         /// <inheritdoc/>
         public CodingSession? GetSessionFromUserInput(List<CodingSession> sessions, string operation)
         {
-            HashSet<int> ids = new HashSet<int>(sessions.Select(x => x.Id));
+            HashSet<int> validIds = new HashSet<int>(sessions.Select(x => x.Id));
 
             int id = AnsiConsole.Prompt(
                 new TextPrompt<int>($"Enter ID of record you with to [green]{operation}[/] or 0 to go back to main menu: ")
-                .Validate(x => ids.Contains(x) || x == 0)
+                .Validate(input => Validator.IsSessionIdValidOrZero(input,validIds))
                 );
 
             return id == 0 ? null : sessions.Find(x => x.Id == id);
