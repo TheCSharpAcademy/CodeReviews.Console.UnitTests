@@ -13,7 +13,7 @@ namespace CodingTracker
         {
             if(DateTime.TryParseExact(input, dateTimeFormat, CultureInfo.InvariantCulture, DateTimeStyles.None, out DateTime parsedInput))
             {
-                return parsedInput >= startDate;
+                return parsedInput > startDate;
             }
 
             return false;

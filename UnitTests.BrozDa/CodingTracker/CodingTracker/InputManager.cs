@@ -86,16 +86,6 @@ namespace CodingTracker
 
             return DateTime.ParseExact(input, DateTimeFormat, CultureInfo.InvariantCulture);
         }
-        /// <summary>
-        /// Parses user input to speficic date and time format
-        /// </summary>
-        /// <param name="input"><see cref="string"/> value representing Date and time from user input</param>
-        /// <param name="parsed">Out <see cref="DateTime"/> parameter used for parsed input</param>
-        /// <returns>true if the input was successfuly parsed, false otherwise</returns>
-        private bool ParseDateTimeInput(string input, out DateTime parsed)
-        {
-            return DateTime.TryParseExact(input, DateTimeFormat, CultureInfo.InvariantCulture, DateTimeStyles.None, out parsed);
-        }
         /// <inheritdoc/>
         public CodingSession? GetSessionFromUserInput(List<CodingSession> sessions, string operation)
         {

@@ -48,7 +48,8 @@ namespace CodingTracker
                 ReportTimeFrame.ThisYear => new DateTime(DateTime.Now.Year, 1, 1),
                 ReportTimeFrame.ThisMonth => new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1),
                 ReportTimeFrame.ThisWeek => GetFirstDayOfWeek(),
-                ReportTimeFrame.Custom => _inputManager.GetStartTime()
+                ReportTimeFrame.Custom => _inputManager.GetStartTime(),
+                _ => throw new ArgumentException("Invalid timeframe") //should not ever happen
             };
         }
         /// <summary>
@@ -78,7 +79,8 @@ namespace CodingTracker
                 ReportTimeFrame.ThisYear => today,
                 ReportTimeFrame.ThisMonth => today,
                 ReportTimeFrame.ThisWeek => today,
-                ReportTimeFrame.Custom => _inputManager.GetEndTime(startDate)
+                ReportTimeFrame.Custom => _inputManager.GetEndTime(startDate),
+                _ => throw new ArgumentException("Invalid timeframe") //should not ever happen
             };
         }
     }
