@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 
 namespace CodingTracker
 {
-    internal static class Validator
+    public static class Validator
     {
         public static bool IsValidDate(string input, string dateTimeFormat)
         {
