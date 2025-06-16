@@ -13,32 +13,17 @@ internal class SessionsController : IBaseController
     
     PrepareReport _prepareReport = new();
     SessionsService _sessionsService = new();
+    Validation _validation = new();
 
     public void AddSessionManually(DatabaseManager databaseManager)
     {
         DateTime userSessionStartTime = AnsiConsole.Prompt(
             new TextPrompt<DateTime>("Add starting date of your session [cadetblue](yyyy-MM-dd HH:mm:ss)[/]:")
-                .Validate(input =>
-                {
-                    if (input.TimeOfDay == TimeSpan.Zero)
-                        return ValidationResult.Error("[red]Time of day is required![/]");
-                    if (input <= new DateTime(1753, 1, 1)) 
-                        return ValidationResult.Error($"[red]Date can't be lower than: [/][yellow]{new DateTime(1753, 1, 1)}[/]");
-                    return ValidationResult.Success();
-                }));
+                .Validate(_validation.ValidateStartTime));
         
         DateTime userSessionEndTime = AnsiConsole.Prompt(
             new TextPrompt<DateTime>("Add ending date of your session [cadetblue](yyyy-MM-dd HH:mm:ss)[/]:")
-                .Validate(input =>
-                {
-                    if (input.TimeOfDay == TimeSpan.Zero) 
-                        return ValidationResult.Error("[red]Time of day is required![/]");
-                    if (input <= userSessionStartTime) 
-                        return ValidationResult.Error("[red]The end date of your session can't be before the start date![/]");
-                    if (input <= new DateTime(1753, 1, 1)) 
-                        return ValidationResult.Error($"[red]Date can't be lower than: [/][yellow]{new DateTime(1753, 1, 1)}[/]");
-                    return ValidationResult.Success();
-                }));
+                .Validate(input => _validation.ValidateEndTime(input, userSessionStartTime)));
 
         decimal userSessionDuration = _sessionsService.GetDuration(userSessionStartTime, userSessionEndTime);
         databaseManager.WriteTable(userSessionStartTime, userSessionEndTime, userSessionDuration);
