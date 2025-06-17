@@ -88,7 +88,7 @@ public class ValidatorTests
     {
         string dateFormat = "dd-MM-yyyy HH:mm";
         DateTime startDate = new DateTime(2025, 06, 16, 08, 30, 0);
-        string endDateString = startDate.AddHours(-2).ToString(dateFormat);
+        string endDateString = startDate.AddHours(-2).ToString();
 
         bool result = Validator.IsValidEndDate(endDateString, startDate, dateFormat);
 

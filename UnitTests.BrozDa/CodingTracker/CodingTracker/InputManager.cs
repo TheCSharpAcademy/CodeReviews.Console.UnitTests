@@ -54,7 +54,6 @@ namespace CodingTracker
         /// <inheritdoc/>
         public DateTime GetStartTime()
         {
-            DateTime startDate = DateTime.Now;
 
             string input = AnsiConsole.Prompt(
                 new TextPrompt<string>($"Enter start date and time in format [green]{DateTimeFormat.ToUpper()}[/]: ")
@@ -67,7 +66,6 @@ namespace CodingTracker
         /// <inheritdoc/>
         public DateTime GetEndTime(DateTime startDate)
         {
-            DateTime endDate = DateTime.Now;
             string input = AnsiConsole.Prompt(
                 new TextPrompt<string>($"Enter end date and time in format [green]{DateTimeFormat.ToUpper()}[/]: ")
                 .Validate((input) => 
