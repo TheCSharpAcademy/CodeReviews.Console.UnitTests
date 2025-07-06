@@ -37,10 +37,9 @@ public sealed class CodingTrackerIsValidatorWork
     {
         var startDate = DateTime.Now - TimeSpan.FromHours(2);
         var endDate = DateTime.Now;
-        
+
         bool result = InputValidator.AreDatesValid(startDate, endDate);
         Assert.IsTrue(result);
-
     }
 
     [TestMethod]
@@ -50,7 +49,5 @@ public sealed class CodingTrackerIsValidatorWork
         var endDate = DateTime.Now;
         bool result = InputValidator.AreDatesValid(endDate, startDate);
         Assert.IsFalse(result);
-        
     }
-    
 }
