@@ -1,12 +1,12 @@
 ﻿using CodingTracker.Views;
-namespace CodingTracker
+
+namespace CodingTracker;
+
+internal class Program
 {
-    internal class Program
+    private static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            AppMenu appMenu = new AppMenu();
-            appMenu.Show();
-        }
+        var appMenu = new AppMenu();
+        appMenu.Show();
     }
 }

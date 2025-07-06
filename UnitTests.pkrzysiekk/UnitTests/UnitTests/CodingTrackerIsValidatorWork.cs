@@ -10,7 +10,7 @@ public sealed class CodingTrackerIsValidatorWork
     [DataRow("07-06-2025 11:55")]
     public void IsDateValid_ReturnsTrue(string dateToValidate)
     {
-        bool result = InputValidator.IsDateValid(dateToValidate);
+        var result = InputValidator.IsDateValid(dateToValidate);
         Assert.IsTrue(result, $"{dateToValidate} is valid");
     }
 
@@ -19,7 +19,7 @@ public sealed class CodingTrackerIsValidatorWork
     [DataRow("07/06/2025 11-55")]
     public void IsDateValid_InvalidValuesFormat_ReturnsFalse(string dateToValidate)
     {
-        bool result = InputValidator.IsDateValid(dateToValidate);
+        var result = InputValidator.IsDateValid(dateToValidate);
         Assert.IsFalse(result, $"{dateToValidate} is invalid");
     }
 
@@ -28,7 +28,7 @@ public sealed class CodingTrackerIsValidatorWork
     [DataRow("12")]
     public void IsDataValid_NoDateFormat_ReturnsFalse(string dateToValidate)
     {
-        bool result = InputValidator.IsDateValid(dateToValidate);
+        var result = InputValidator.IsDateValid(dateToValidate);
         Assert.IsFalse(result, $"{dateToValidate} is invalid");
     }
 
@@ -38,7 +38,7 @@ public sealed class CodingTrackerIsValidatorWork
         var startDate = DateTime.Now - TimeSpan.FromHours(2);
         var endDate = DateTime.Now;
 
-        bool result = InputValidator.AreDatesValid(startDate, endDate);
+        var result = InputValidator.AreDatesValid(startDate, endDate);
         Assert.IsTrue(result);
     }
 
@@ -47,7 +47,7 @@ public sealed class CodingTrackerIsValidatorWork
     {
         var startDate = DateTime.Now - TimeSpan.FromHours(2);
         var endDate = DateTime.Now;
-        bool result = InputValidator.AreDatesValid(endDate, startDate);
+        var result = InputValidator.AreDatesValid(endDate, startDate);
         Assert.IsFalse(result);
     }
 }
