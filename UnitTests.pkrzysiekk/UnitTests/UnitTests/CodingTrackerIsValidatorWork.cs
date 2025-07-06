@@ -31,4 +31,26 @@ public sealed class CodingTrackerIsValidatorWork
         bool result = InputValidator.IsDateValid(dateToValidate);
         Assert.IsFalse(result, $"{dateToValidate} is invalid");
     }
+
+    [TestMethod]
+    public void AreDatesValid_ReturnsTrue()
+    {
+        var startDate = DateTime.Now - TimeSpan.FromHours(2);
+        var endDate = DateTime.Now;
+        
+        bool result = InputValidator.AreDatesValid(startDate, endDate);
+        Assert.IsTrue(result);
+
+    }
+
+    [TestMethod]
+    public void AreDatesValid_IncorrectDatesOrder_ReturnsFalse()
+    {
+        var startDate = DateTime.Now - TimeSpan.FromHours(2);
+        var endDate = DateTime.Now;
+        bool result = InputValidator.AreDatesValid(endDate, startDate);
+        Assert.IsFalse(result);
+        
+    }
+    
 }
