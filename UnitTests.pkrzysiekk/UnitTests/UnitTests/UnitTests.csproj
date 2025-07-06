@@ -16,4 +16,8 @@
         <Using Include="Microsoft.VisualStudio.TestTools.UnitTesting"/>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\..\CodingTracker\CodingTracker.csproj" />
+    </ItemGroup>
+
 </Project>
