@@ -33,7 +33,7 @@ public class UserInterface
         )
             .Header($"Details for ID: {session.Id}")
             .BorderStyle(Style.Parse("aquamarine1"));
-        ;
+        
 
         panel.Padding = new Padding(2);
         panel.Expand();
