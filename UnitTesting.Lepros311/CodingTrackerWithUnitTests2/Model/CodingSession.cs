@@ -1,7 +1,4 @@
 ﻿using System.Data.SQLite;
-using System.Globalization;
-using Dapper;
-using System;
 
 namespace CodingTracker
 {
@@ -30,6 +27,6 @@ namespace CodingTracker
                 command.CommandText = "SELECT COUNT(*) FROM CodingSessions";
                 return Convert.ToInt32(command.ExecuteScalar());
             }
-        }  
+        }
     }
 }

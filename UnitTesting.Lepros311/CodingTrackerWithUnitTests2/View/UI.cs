@@ -43,7 +43,6 @@ namespace CodingTracker
                     }
                     else
                     {
-                        var validation2 = new Validation();
                         date = validation.ValidateDate(dateInput);
                     }
                 }
