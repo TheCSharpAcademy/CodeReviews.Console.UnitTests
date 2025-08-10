@@ -20,4 +20,4 @@ Project link: [Unit Testing](https://www.thecsharpacademy.com/project/21/unit-te
 - This refactor clarified the importance of writing testable, modular code.
 
 ## Main resources used:
-[MS documentation] (https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-csharp-with-mstest)
+- [MS documentation](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-csharp-with-mstest)
