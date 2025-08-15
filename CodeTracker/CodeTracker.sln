@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeTracker", "CodeTracker\CodeTracker.csproj", "{59CA94E5-F723-475A-AECD-C00CB8E389EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeTrackerLibrary", "CodeTrackerLibrary\CodeTrackerLibrary.csproj", "{6C79FBE2-0D74-4442-B10F-F6C9973DEDF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeTrackerUnitTest", "CodeTrackerUnitTest\CodeTrackerUnitTest.csproj", "{B5CC2E2F-445D-4A0A-800F-9127810B1D5B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{59CA94E5-F723-475A-AECD-C00CB8E389EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59CA94E5-F723-475A-AECD-C00CB8E389EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59CA94E5-F723-475A-AECD-C00CB8E389EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59CA94E5-F723-475A-AECD-C00CB8E389EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C79FBE2-0D74-4442-B10F-F6C9973DEDF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C79FBE2-0D74-4442-B10F-F6C9973DEDF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C79FBE2-0D74-4442-B10F-F6C9973DEDF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C79FBE2-0D74-4442-B10F-F6C9973DEDF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B5CC2E2F-445D-4A0A-800F-9127810B1D5B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B5CC2E2F-445D-4A0A-800F-9127810B1D5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B5CC2E2F-445D-4A0A-800F-9127810B1D5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B5CC2E2F-445D-4A0A-800F-9127810B1D5B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
